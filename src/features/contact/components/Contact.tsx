@@ -22,11 +22,15 @@ export function Contact({ content, email, location, social, variant = "panel" }:
   if (variant === "page") {
     return (
       <Container className="contact-layout">
-        <div>
-          <p className="body-copy">{content.pageDescription}</p>
-          <p className="contact-email">
-            <Mail aria-hidden="true" />
-            <a href={`mailto:${email}`}>{email}</a>
+        <Reveal variant="left">
+          <div className="tile contact-details">
+            <p className="body-copy">{content.pageDescription}</p>
+            <div className="contact-email">
+              <span className="contact-icon" aria-hidden="true">
+                <Mail />
+              </span>
+              <a href={`mailto:${email}`}>{email}</a>
+            </div>
             <CopyEmailButton
               email={email}
               copyLabel={content.copyLabel}
@@ -34,14 +38,18 @@ export function Contact({ content, email, location, social, variant = "panel" }:
               copyAria={content.copyAria}
               fallback={content.clipboardFallback}
             />
-          </p>
-          <p className="body-copy contact-location">
-            <MapPin aria-hidden="true" />
-            {location}
-          </p>
-          <p className="form-note">{content.sampleNote}</p>
-        </div>
-        <ContactForm content={content} email={email} />
+            <p className="contact-location">
+              <span className="contact-icon" aria-hidden="true">
+                <MapPin />
+              </span>
+              {location}
+            </p>
+            <p className="form-note">{content.sampleNote}</p>
+          </div>
+        </Reveal>
+        <Reveal variant="right" delay={1}>
+          <ContactForm content={content} email={email} />
+        </Reveal>
       </Container>
     );
   }
@@ -49,43 +57,45 @@ export function Contact({ content, email, location, social, variant = "panel" }:
   return (
     <Section id="contact" labelledBy="contact-cta">
       <Container>
-        <Reveal>
-          <div className="contact-panel">
-            <p className="eyebrow">
-              <span className="status-dot" aria-hidden="true" />
-              {content.panelEyebrow}
-            </p>
-            <h2 id="contact-cta" className="contact-heading">
-              {content.panelTitle}
-              <br />
-              <span className="text-primary">{content.panelAccent}</span>
-            </h2>
-            <p className="body-copy">{content.panelDescription}</p>
-            <div className="contact-actions">
-              <Button href={content.primaryHref}>
-                {content.primaryAction}
-                <ArrowUpRight aria-hidden="true" />
-              </Button>
-              <CopyEmailButton
-                email={email}
-                copyLabel={content.copyLabel}
-                copiedLabel={content.copiedLabel}
-                copyAria={content.copyAria}
-                fallback={content.clipboardFallback}
-              />
-              {links.map((item) => (
-                <a
-                  key={item.label}
-                  className="icon-button"
-                  href={item.href}
-                  aria-label={item.label}
-                >
+        <Reveal variant="scale">
+          <div className="ink-panel contact-panel" data-spotlight>
+            <span className="contact-orb" aria-hidden="true" />
+            <div className="contact-main">
+              <p className="pill pill-ink">
+                <span className="status-dot" aria-hidden="true" />
+                {content.panelEyebrow}
+              </p>
+              <h2 id="contact-cta" className="contact-heading">
+                {content.panelTitle} <span className="text-accent">{content.panelAccent}</span>
+              </h2>
+              <p className="body-copy">{content.panelDescription}</p>
+            </div>
+            <div className="contact-side">
+              <div className="contact-actions">
+                <Button href={content.primaryHref}>
+                  {content.primaryAction}
                   <ArrowUpRight aria-hidden="true" />
+                </Button>
+                <CopyEmailButton
+                  email={email}
+                  copyLabel={content.copyLabel}
+                  copiedLabel={content.copiedLabel}
+                  copyAria={content.copyAria}
+                  fallback={content.clipboardFallback}
+                />
+              </div>
+              <div className="contact-links">
+                <a href={`mailto:${email}`} aria-label={content.emailAria}>
+                  <Mail aria-hidden="true" />
+                  {email}
                 </a>
-              ))}
-              <a className="icon-button" href={`mailto:${email}`} aria-label={content.emailAria}>
-                <ArrowUpRight aria-hidden="true" />
-              </a>
+                {links.map((item) => (
+                  <a key={item.label} href={item.href}>
+                    {item.label}
+                    <ArrowUpRight aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>

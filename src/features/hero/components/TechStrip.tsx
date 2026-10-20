@@ -1,11 +1,11 @@
-import { Code2, Component, Database, Flame, Layers, type LucideIcon } from "lucide-react";
+import { Code2, Component, Database, Flame, Layers, Wind, type LucideIcon } from "lucide-react";
 import type { TechStripContent } from "@/types/content";
 
 const icons: Record<string, LucideIcon> = {
   React: Component,
   "Next.js": Layers,
   TypeScript: Code2,
-  "Tailwind CSS": Layers,
+  "Tailwind CSS": Wind,
   Supabase: Database,
   Firebase: Flame,
 };
@@ -16,28 +16,28 @@ interface TechStripProps {
 
 export function TechStrip({ content }: TechStripProps) {
   const [firstLine, secondLine] = content.label.split("\n");
+  // Each group repeats the list so a single group is always wider than the viewport.
+  const loop = [...content.items, ...content.items];
 
   return (
     <div className="craft-strip" aria-label={content.accessibleName}>
       <div className="page-container craft-strip-inner">
         <p className="craft-label">
           {firstLine}
-          {secondLine ? (
-            <>
-              <br />
-              {secondLine}
-            </>
-          ) : null}
+          {secondLine ? <span>{secondLine}</span> : null}
         </p>
         <div className="marquee">
           <ul className="marquee-group">
             {content.items.map((name) => (
               <TechItem key={name} name={name} />
             ))}
+            {content.items.map((name) => (
+              <TechItem key={`${name}-repeat`} name={name} hidden />
+            ))}
           </ul>
           <ul className="marquee-group" aria-hidden="true">
-            {content.items.map((name) => (
-              <TechItem key={`${name}-copy`} name={name} />
+            {loop.map((name, index) => (
+              <TechItem key={`${name}-copy-${index}`} name={name} />
             ))}
           </ul>
         </div>
@@ -46,10 +46,10 @@ export function TechStrip({ content }: TechStripProps) {
   );
 }
 
-function TechItem({ name }: { name: string }) {
+function TechItem({ name, hidden = false }: { name: string; hidden?: boolean }) {
   const Icon = icons[name];
   return (
-    <li className="technology">
+    <li className="technology" aria-hidden={hidden || undefined}>
       {Icon ? <Icon aria-hidden="true" /> : null}
       {name}
     </li>

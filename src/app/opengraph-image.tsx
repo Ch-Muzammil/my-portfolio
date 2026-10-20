@@ -15,12 +15,15 @@ export default function OpenGraphImage() {
         width: "100%",
         height: "100%",
         padding: "80px",
-        background: "#0b0d0c",
-        color: "#f4f6f5",
+        background: "#f3f2ee",
+        color: "#0d0d12",
       }}
     >
-      <div style={{ fontSize: 28, color: "#8fe8b8" }}>{site.role}</div>
-      <div style={{ marginTop: 16, fontSize: 72 }}>{site.name}</div>
+      <div style={{ fontSize: 28, color: "#3346ff" }}>{site.role}</div>
+      <div style={{ marginTop: 16, fontSize: 84, fontWeight: 700, letterSpacing: -3 }}>
+        {site.name}
+      </div>
+      <div style={{ marginTop: 28, width: 220, height: 14, background: "#dfe3ff" }} />
     </div>,
     size,
   );

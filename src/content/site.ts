@@ -7,7 +7,7 @@ export const site: SiteContent = {
   fullName: "Muzammal Hussain",
   role: "Software Engineer",
   email: "hello@example.com",
-  location: "Karachi, Pakistan",
+  location: "Lahore, Pakistan",
   resumePath: "/muzammal-resume.pdf",
   url: configuredUrl.replace(/\/$/, ""),
   title: "Muzammal Hussain — Software Engineer",

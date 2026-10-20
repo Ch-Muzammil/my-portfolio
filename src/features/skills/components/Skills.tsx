@@ -16,22 +16,18 @@ export function Skills({ content, variant = "compact" }: SkillsProps) {
   const [titleLead, titleRest] = content.title.split("\n");
 
   return (
-    <Section id="skills" labelledBy={headingId} bordered variant={variant}>
+    <Section id="skills" labelledBy={headingId} variant={variant}>
       <Container>
-        <div className="skills-layout">
-          <div className="skills-sticky">
+        <div className="ink-panel skills-layout">
+          <span className="ink-glow" aria-hidden="true" />
+          <Reveal className="skills-intro" variant="left">
             <p className="eyebrow">
-              <span className="text-primary">{content.number} /</span>
+              <span className="eyebrow-index">{content.number}</span>
               {content.label}
             </p>
             <h2 id={headingId} className="section-title">
               {titleLead}
-              {titleRest ? (
-                <>
-                  <br />
-                  {titleRest}
-                </>
-              ) : null}
+              {titleRest ? <span className="text-accent">{titleRest}</span> : null}
             </h2>
             <p className="body-copy">{content.description}</p>
             <div className="tags">
@@ -39,18 +35,18 @@ export function Skills({ content, variant = "compact" }: SkillsProps) {
                 <Chip key={trait}>{trait}</Chip>
               ))}
             </div>
-          </div>
-          <div>
-            <Reveal>
-              <div className="core-tiles">
-                {content.core.map((skill) => (
-                  <CoreTile key={skill.name} skill={skill} />
-                ))}
-              </div>
-            </Reveal>
+          </Reveal>
+          <div className="skills-body">
+            <div className="core-tiles">
+              {content.core.map((skill, index) => (
+                <Reveal key={skill.name} variant="scale" delay={index}>
+                  <CoreTile skill={skill} />
+                </Reveal>
+              ))}
+            </div>
             <div className="skill-groups">
-              {content.groups.map((group) => (
-                <Reveal key={group.label}>
+              {content.groups.map((group, index) => (
+                <Reveal key={group.label} delay={index}>
                   <SkillGroup group={group} />
                 </Reveal>
               ))}

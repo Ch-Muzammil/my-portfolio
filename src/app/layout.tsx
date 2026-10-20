@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { Spotlight } from "@/components/ui/Spotlight";
 import { footer } from "@/content/footer";
 import { nav } from "@/content/nav";
 import { site } from "@/content/site";
@@ -17,6 +18,12 @@ const geist = Geist({
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+  display: "swap",
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
   display: "swap",
 });
 
@@ -39,14 +46,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${bricolage.variable}`}>
       <body>
         <a className="skip-link" href="#main-content">
           {site.skipToContent}
         </a>
+        <div className="scroll-progress" aria-hidden="true" />
+        <Spotlight />
         <Header site={site} nav={nav} />
         <main id="main-content">{children}</main>
-        <Footer footer={footer} social={site.social} />
+        <Footer footer={footer} social={site.social} name={site.name} />
       </body>
     </html>
   );

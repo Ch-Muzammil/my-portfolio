@@ -21,9 +21,9 @@ interface ButtonAsLink extends ButtonBase {
 }
 
 const variantClass: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-primary-foreground hover:bg-primary-hover",
-  quiet: "border border-border-strong bg-transparent text-foreground hover:bg-secondary",
-  ghost: "bg-transparent text-foreground hover:bg-secondary",
+  primary: "btn-primary",
+  quiet: "btn-quiet",
+  ghost: "btn-ghost",
 };
 
 function buttonClass(variant: ButtonVariant, className?: string) {

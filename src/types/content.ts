@@ -181,6 +181,11 @@ export interface AboutContent {
     note: string;
     alt: string;
     caption: string;
+    image?: {
+      src: string;
+      width: number;
+      height: number;
+    };
   };
   stats: readonly AboutStat[];
   quote: string;
@@ -263,4 +268,5 @@ export interface FooterContent {
   copyright: string;
   talk: string;
   talkHref: string;
+  backToTop: string;
 }

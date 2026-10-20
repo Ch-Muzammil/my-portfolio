@@ -7,7 +7,7 @@ interface SkillGroupProps {
 
 export function SkillGroup({ group }: SkillGroupProps) {
   return (
-    <div>
+    <div className="skill-group">
       <p className="skill-group-label">
         {group.label} <span className="skill-count">{group.skills.length}</span>
       </p>

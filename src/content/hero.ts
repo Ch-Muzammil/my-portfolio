@@ -24,9 +24,9 @@ export const hero: HeroContent = {
   ],
   caption: "A little design. A lot of intention.",
   image: {
-    src: "/images/hero-sculpture.webp",
-    width: 1536,
-    height: 1024,
-    alt: "",
+    src: "/images/hero-portrait.webp",
+    width: 1024,
+    height: 1536,
+    alt: "Portrait of Muzammal Hussain in a navy sweater, arms crossed",
   },
 };

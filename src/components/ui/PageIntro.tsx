@@ -22,22 +22,29 @@ export function PageIntro({
 }: PageIntroProps) {
   return (
     <Container className="page-intro">
-      <p className="eyebrow">
+      <p className="pill">
         {status ? <span className="status-dot" aria-hidden="true" /> : null}
         {eyebrow}
       </p>
       <h1>
-        {title}
-        {suffix ? <span className="text-primary">{suffix}</span> : null}
+        <span className="line">
+          <span className="line-inner">
+            {title}
+            {suffix ? <span className="text-primary">{suffix}</span> : null}
+          </span>
+        </span>
         {accent ? (
-          <>
-            <br />
-            <span className="text-primary">{accent}</span>
-          </>
+          <span className="line">
+            <span className="line-inner text-primary" style={{ animationDelay: "0.12s" }}>
+              {accent}
+            </span>
+          </span>
         ) : null}
       </h1>
-      {description ? <p className="body-copy">{description}</p> : null}
-      {children}
+      <div className="page-intro-body">
+        {description ? <p className="body-copy">{description}</p> : null}
+        {children}
+      </div>
     </Container>
   );
 }

@@ -14,7 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const extra = project.tags.length - visibleTags.length;
 
   return (
-    <article className="project-card">
+    <article className="project-card" data-spotlight>
       <div className="project-image-wrap">
         <Image
           src={project.image.src}
@@ -24,19 +24,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
           sizes="(max-width: 40rem) 100vw, (max-width: 64rem) 50vw, 33vw"
           className="project-image"
         />
-      </div>
-      <div className="project-info">
-        <div>
-          <h3>
-            <Link href={`/work/${project.slug}`}>{project.title}</Link>
-          </h3>
-          <p>{project.subtitle}</p>
-        </div>
+        <Badge>{project.kind}</Badge>
         <span className="project-arrow" aria-hidden="true">
           <ArrowUpRight />
         </span>
       </div>
-      <Badge>{project.kind}</Badge>
+      <div className="project-info">
+        <p className="project-year">{project.year}</p>
+        <h3>
+          <Link href={`/work/${project.slug}`}>{project.title}</Link>
+        </h3>
+        <p>{project.subtitle}</p>
+      </div>
       <div className="tags">
         {visibleTags.map((tag) => (
           <Chip key={tag}>{tag}</Chip>

@@ -8,12 +8,14 @@ interface TimelineProps {
 
 export function Timeline({ items }: TimelineProps) {
   return (
-    <div className="timeline">
-      {items.map((item) => (
-        <Reveal key={item.date}>
-          <TimelineItem item={item} />
-        </Reveal>
+    <ol className="timeline">
+      {items.map((item, index) => (
+        <li key={item.date}>
+          <Reveal delay={index}>
+            <TimelineItem item={item} index={index + 1} />
+          </Reveal>
+        </li>
       ))}
-    </div>
+    </ol>
   );
 }

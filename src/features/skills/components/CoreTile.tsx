@@ -18,7 +18,7 @@ export function CoreTile({ skill }: CoreTileProps) {
   const Icon = icons[skill.name];
 
   return (
-    <div className="core-tile">
+    <div className="core-tile" data-spotlight>
       <div className="skill-icon" aria-hidden="true">
         {Icon ? <Icon /> : null}
       </div>

@@ -59,7 +59,7 @@ export const experience: ExperienceContent = {
     },
     eyebrow: "The short version",
     title: "Muzammal Hussain",
-    summary: "Software Engineer · Karachi, Pakistan · Open to remote opportunities",
+    summary: "Software Engineer · Lahore, Pakistan · Open to remote opportunities",
     skills: "React / Next.js / TypeScript / Design systems / Accessibility",
     note: "Sample résumé — project concepts and experience entries are illustrative.",
   },

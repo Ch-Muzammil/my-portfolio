@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { NavContent, SiteContent } from "@/types/content";
 import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
 import { HeaderBar } from "@/components/layout/HeaderBar";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { ScrollSpyNav } from "@/components/layout/ScrollSpyNav";
@@ -14,25 +14,27 @@ interface HeaderProps {
 export function Header({ site, nav }: HeaderProps) {
   return (
     <HeaderBar>
-      <Container className="header-inner">
-        <Link href="/" className="brand" aria-label={nav.brandLabel}>
-          <span className="brand-mark">m.</span>
-          <span className="brand-name">{site.name}</span>
-        </Link>
-        <ScrollSpyNav items={nav.items} label={nav.label} />
-        <div className="header-actions">
-          <Link href={nav.resumeHref} className="nav-link">
-            {nav.resume}
+      <div className="page-container header-wrap">
+        <div className="header-inner">
+          <Link href="/" className="brand" aria-label={nav.brandLabel}>
+            <span className="brand-mark" aria-hidden="true">
+              MH
+            </span>
+            <span className="brand-name">{site.name}</span>
           </Link>
-          <Button href={nav.talkHref} variant="primary">
-            {nav.talk}
-          </Button>
+          <ScrollSpyNav items={nav.items} label={nav.label} />
+          <div className="header-actions">
+            <Link href={nav.resumeHref} className="header-link">
+              {nav.resume}
+            </Link>
+            <Button href={nav.talkHref} variant="primary" className="header-cta">
+              {nav.talk}
+              <ArrowUpRight aria-hidden="true" />
+            </Button>
+          </div>
+          <MobileMenu nav={nav} />
         </div>
-        <Button href={nav.talkHref} variant="primary" className="mobile-talk">
-          {nav.talk}
-        </Button>
-        <MobileMenu nav={nav} />
-      </Container>
+      </div>
     </HeaderBar>
   );
 }

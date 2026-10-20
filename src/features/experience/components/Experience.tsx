@@ -11,25 +11,16 @@ interface ExperienceProps {
 
 export function Experience({ content, variant = "compact" }: ExperienceProps) {
   return (
-    <Section id="experience" label={content.label} bordered variant={variant}>
+    <Section id="experience" label={content.label} variant={variant}>
       <Container>
-        {variant === "compact" ? (
-          <SectionHeader
-            number={content.number}
-            label={content.label}
-            title={content.title}
-            muted={content.muted}
-            href={content.linkHref}
-            linkLabel={content.linkLabel}
-          />
-        ) : (
-          <SectionHeader
-            number={content.number}
-            label={content.label}
-            title={content.title}
-            muted={content.muted}
-          />
-        )}
+        <SectionHeader
+          number={content.number}
+          label={content.label}
+          title={content.title}
+          muted={content.muted}
+          href={content.linkHref}
+          linkLabel={content.linkLabel}
+        />
         <Timeline items={content.items} />
       </Container>
     </Section>

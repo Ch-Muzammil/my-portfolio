@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 interface SectionHeaderProps {
   number: string;
@@ -21,10 +22,10 @@ export function SectionHeader({
   headingId,
 }: SectionHeaderProps) {
   return (
-    <div className="section-heading">
+    <Reveal className="section-heading">
       <div>
         <p className="eyebrow">
-          <span className="text-primary">{number} /</span>
+          <span className="eyebrow-index">{number}</span>
           {label}
         </p>
         <h2 id={headingId}>
@@ -34,9 +35,11 @@ export function SectionHeader({
       {href && linkLabel ? (
         <Link href={href} className="section-link">
           {linkLabel}
-          <ArrowUpRight aria-hidden="true" />
+          <span className="section-link-icon" aria-hidden="true">
+            <ArrowUpRight />
+          </span>
         </Link>
       ) : null}
-    </div>
+    </Reveal>
   );
 }

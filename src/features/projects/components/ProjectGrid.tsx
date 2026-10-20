@@ -9,8 +9,8 @@ interface ProjectGridProps {
 export function ProjectGrid({ projects }: ProjectGridProps) {
   return (
     <div className="project-grid">
-      {projects.map((project) => (
-        <Reveal key={project.slug}>
+      {projects.map((project, index) => (
+        <Reveal key={project.slug} delay={index % 3}>
           <ProjectCard project={project} />
         </Reveal>
       ))}

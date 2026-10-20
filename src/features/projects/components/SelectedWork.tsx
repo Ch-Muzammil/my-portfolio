@@ -24,11 +24,8 @@ export function SelectedWork({ content, featured, projects }: SelectedWorkProps)
           href={content.linkHref}
           linkLabel={content.linkLabel}
         />
-        <Reveal>
-          <FeaturedProject
-            project={featured}
-            indexLabel={`${content.number} / ${content.featuredLabel}`}
-          />
+        <Reveal variant="scale">
+          <FeaturedProject project={featured} indexLabel={content.featuredLabel} />
         </Reveal>
         <ProjectGrid projects={projects} />
       </Container>
