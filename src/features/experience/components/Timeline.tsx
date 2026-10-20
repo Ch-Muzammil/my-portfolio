@@ -4,15 +4,16 @@ import { TimelineItem } from "@/features/experience/components/TimelineItem";
 
 interface TimelineProps {
   items: readonly ExperienceItem[];
+  highlightLimit?: number;
 }
 
-export function Timeline({ items }: TimelineProps) {
+export function Timeline({ items, highlightLimit }: TimelineProps) {
   return (
     <ol className="timeline">
       {items.map((item, index) => (
         <li key={item.date}>
           <Reveal delay={index}>
-            <TimelineItem item={item} index={index + 1} />
+            <TimelineItem item={item} index={index + 1} highlightLimit={highlightLimit} />
           </Reveal>
         </li>
       ))}

@@ -28,7 +28,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero hero={hero} location={site.location} />
+      <Hero hero={hero} location={site.location} social={site.social} />
       <TechStrip content={techStrip} />
       <SelectedWork content={projectsContent} featured={featured} projects={more} />
       <Skills content={skills} variant="compact" />

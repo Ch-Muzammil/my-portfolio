@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import type { ContactContent, SiteContent, SocialLink } from "@/types/content";
+import { BrandIcon } from "@/components/ui/BrandIcon";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -44,7 +45,17 @@ export function Contact({ content, email, location, social, variant = "panel" }:
               </span>
               {location}
             </p>
-            <p className="form-note">{content.sampleNote}</p>
+            {links.length > 0 ? (
+              <div className="contact-socials">
+                {links.map((item) => (
+                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer">
+                    <BrandIcon name={item.icon} />
+                    {item.label}
+                    <ArrowUpRight aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
         </Reveal>
         <Reveal variant="right" delay={1}>
@@ -84,18 +95,24 @@ export function Contact({ content, email, location, social, variant = "panel" }:
                   fallback={content.clipboardFallback}
                 />
               </div>
-              <div className="contact-links">
-                <a href={`mailto:${email}`} aria-label={content.emailAria}>
-                  <Mail aria-hidden="true" />
-                  {email}
-                </a>
-                {links.map((item) => (
-                  <a key={item.label} href={item.href}>
-                    {item.label}
-                    <ArrowUpRight aria-hidden="true" />
+              <ul className="contact-links">
+                <li>
+                  <a href={`mailto:${email}`} aria-label={content.emailAria}>
+                    <Mail aria-hidden="true" />
+                    <span>{email}</span>
+                    <ArrowUpRight className="contact-link-arrow" aria-hidden="true" />
                   </a>
+                </li>
+                {links.map((item) => (
+                  <li key={item.label}>
+                    <a href={item.href} target="_blank" rel="noopener noreferrer">
+                      <BrandIcon name={item.icon} />
+                      <span>{item.label}</span>
+                      <ArrowUpRight className="contact-link-arrow" aria-hidden="true" />
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </Reveal>

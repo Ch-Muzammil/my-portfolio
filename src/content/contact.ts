@@ -22,8 +22,6 @@ export const contact: ContactContent = {
   pageAccent: "something great.",
   pageDescription:
     "Have a project in mind, a role you think I’d love, or simply want to say hello? I’d be happy to hear from you.",
-  sampleNote:
-    "This portfolio currently uses a sample contact address. A verified email and social profiles are still to be added.",
   nameLabel: "Your name",
   namePlaceholder: "Alex Morgan",
   emailLabel: "Email address",

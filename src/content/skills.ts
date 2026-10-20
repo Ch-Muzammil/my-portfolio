@@ -8,18 +8,19 @@ export const skills: SkillsContent = {
     "The right tools matter. Knowing when and how to use them matters more. I care about every detail, from the first pixel to the final interaction.",
   traits: ["Pixel-conscious", "Performance-driven", "Always learning"],
   core: [
-    { name: "React", level: "Daily" },
-    { name: "Next.js", level: "Production" },
-    { name: "TypeScript", level: "Daily" },
-    { name: "JavaScript ES6+", level: "Daily" },
-    { name: "Tailwind CSS", level: "Production" },
-    { name: "Figma", level: "Design handoff" },
+    { name: "React", level: "Reusable components", icon: "react" },
+    { name: "Next.js", level: "App Router · SSR", icon: "nextjs" },
+    { name: "TypeScript", level: "Type-safe codebases", icon: "typescript" },
+    { name: "JavaScript", level: "ES6+ fundamentals", icon: "javascript" },
+    { name: "Tailwind CSS", level: "Design systems", icon: "tailwind" },
+    { name: "Figma", level: "Design handoff", icon: "figma" },
   ],
   groups: [
     {
-      label: "UI & Design",
+      label: "UI & Styling",
       skills: [
         "shadcn/ui",
+        "Material UI",
         "Radix",
         "Framer Motion",
         "Storybook",
@@ -29,15 +30,27 @@ export const skills: SkillsContent = {
     },
     {
       label: "State & Data",
-      skills: ["React Query", "Zustand / Redux", "REST & GraphQL", "Zod", "Supabase", "Firebase"],
+      skills: ["TanStack Query", "Zustand / Redux", "Context API", "Axios", "Zod"],
     },
     {
-      label: "Quality",
-      skills: ["Vitest", "Playwright", "Core Web Vitals", "WCAG accessibility"],
+      label: "Backend & APIs",
+      skills: ["Supabase", "Firebase", "FastAPI", "Next.js API routes", "REST & GraphQL"],
     },
     {
-      label: "Workflow",
-      skills: ["Git & GitHub", "Vercel", "CI/CD", "Vite"],
+      label: "Integrations",
+      skills: ["Stripe payments", "Persona KYC", "Socket.io real-time", "Nuitée liteAPI"],
+    },
+    {
+      label: "Testing & Quality",
+      skills: ["Vitest", "Playwright", "Husky", "ESLint & Prettier", "Core Web Vitals"],
+    },
+    {
+      label: "Accessibility",
+      skills: ["WCAG 2.1 AA", "Semantic HTML", "ARIA roles", "Keyboard navigation"],
+    },
+    {
+      label: "Tools & Workflow",
+      skills: ["Git & GitHub", "Vite", "Vercel", "CI/CD", "Agile / Scrum", "Lovable AI"],
     },
   ],
 };

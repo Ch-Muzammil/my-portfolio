@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${bricolage.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           {site.skipToContent}
         </a>
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Spotlight />
         <Header site={site} nav={nav} />
         <main id="main-content">{children}</main>
-        <Footer footer={footer} social={site.social} name={site.name} />
+        <Footer footer={footer} site={site} nav={nav} />
       </body>
     </html>
   );

@@ -1,14 +1,7 @@
-import { Code2, Component, Database, Flame, Layers, Wind, type LucideIcon } from "lucide-react";
 import type { TechStripContent } from "@/types/content";
+import { BrandIcon } from "@/components/ui/BrandIcon";
 
-const icons: Record<string, LucideIcon> = {
-  React: Component,
-  "Next.js": Layers,
-  TypeScript: Code2,
-  "Tailwind CSS": Wind,
-  Supabase: Database,
-  Firebase: Flame,
-};
+type TechItemData = TechStripContent["items"][number];
 
 interface TechStripProps {
   content: TechStripContent;
@@ -28,16 +21,16 @@ export function TechStrip({ content }: TechStripProps) {
         </p>
         <div className="marquee">
           <ul className="marquee-group">
-            {content.items.map((name) => (
-              <TechItem key={name} name={name} />
+            {content.items.map((item) => (
+              <TechItem key={item.name} item={item} />
             ))}
-            {content.items.map((name) => (
-              <TechItem key={`${name}-repeat`} name={name} hidden />
+            {content.items.map((item) => (
+              <TechItem key={`${item.name}-repeat`} item={item} hidden />
             ))}
           </ul>
           <ul className="marquee-group" aria-hidden="true">
-            {loop.map((name, index) => (
-              <TechItem key={`${name}-copy-${index}`} name={name} />
+            {loop.map((item, index) => (
+              <TechItem key={`${item.name}-copy-${index}`} item={item} />
             ))}
           </ul>
         </div>
@@ -46,12 +39,11 @@ export function TechStrip({ content }: TechStripProps) {
   );
 }
 
-function TechItem({ name, hidden = false }: { name: string; hidden?: boolean }) {
-  const Icon = icons[name];
+function TechItem({ item, hidden = false }: { item: TechItemData; hidden?: boolean }) {
   return (
     <li className="technology" aria-hidden={hidden || undefined}>
-      {Icon ? <Icon aria-hidden="true" /> : null}
-      {name}
+      <BrandIcon name={item.icon} />
+      {item.name}
     </li>
   );
 }

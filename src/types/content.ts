@@ -3,9 +3,22 @@ export interface MetaContent {
   description: string;
 }
 
+export type BrandName =
+  | "github"
+  | "linkedin"
+  | "react"
+  | "nextjs"
+  | "typescript"
+  | "javascript"
+  | "tailwind"
+  | "figma"
+  | "supabase"
+  | "firebase";
+
 export interface SocialLink {
   label: string;
   href: string;
+  icon: Extract<BrandName, "github" | "linkedin">;
 }
 
 export interface SiteContent {
@@ -85,7 +98,7 @@ export interface HeroContent {
 export interface TechStripContent {
   label: string;
   accessibleName: string;
-  items: readonly string[];
+  items: readonly { name: string; icon: BrandName }[];
 }
 
 export interface ProjectImage {
@@ -145,6 +158,7 @@ export interface ProjectsContent {
 export interface SkillItem {
   name: string;
   level: string;
+  icon: BrandName;
 }
 
 export interface SkillGroup {
@@ -200,9 +214,10 @@ export interface AboutContent {
 export interface ExperienceItem {
   date: string;
   title: string;
-  employment: string;
+  employment?: string;
   company: string;
-  description: string;
+  location: string;
+  highlights: readonly string[];
   tags: readonly string[];
   current: boolean;
 }
@@ -249,7 +264,6 @@ export interface ContactContent {
   pageTitle: string;
   pageAccent: string;
   pageDescription: string;
-  sampleNote: string;
   nameLabel: string;
   namePlaceholder: string;
   emailLabel: string;
@@ -265,6 +279,11 @@ export interface ContactContent {
 }
 
 export interface FooterContent {
+  tagline: string;
+  availability: string;
+  navigateLabel: string;
+  connectLabel: string;
+  resume: string;
   copyright: string;
   talk: string;
   talkHref: string;

@@ -6,7 +6,7 @@ export const site: SiteContent = {
   name: "Muzammal Hussain",
   fullName: "Muzammal Hussain",
   role: "Software Engineer",
-  email: "hello@example.com",
+  email: "chmzml22@gmail.com",
   location: "Lahore, Pakistan",
   resumePath: "/muzammal-resume.pdf",
   url: configuredUrl.replace(/\/$/, ""),
@@ -14,8 +14,8 @@ export const site: SiteContent = {
   description: "Thoughtful interfaces and beautifully engineered web experiences.",
   skipToContent: "Skip to content",
   social: [
-    { label: "GitHub", href: "TODO" },
-    { label: "LinkedIn", href: "TODO" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/ch-muzammil/", icon: "linkedin" },
+    { label: "GitHub", href: "https://github.com/Ch-Muzammil", icon: "github" },
   ],
   notFound: {
     code: "404",

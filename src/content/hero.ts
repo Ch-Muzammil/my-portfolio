@@ -20,7 +20,7 @@ export const hero: HeroContent = {
   stats: [
     { label: "Years", value: "3+" },
     { label: "Projects", value: "6+" },
-    { label: "Open to", value: "Remote" },
+    { label: "Remote · Onsite", value: "Full-time" },
   ],
   caption: "A little design. A lot of intention.",
   image: {

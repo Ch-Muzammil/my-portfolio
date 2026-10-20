@@ -21,7 +21,7 @@ export function Experience({ content, variant = "compact" }: ExperienceProps) {
           href={content.linkHref}
           linkLabel={content.linkLabel}
         />
-        <Timeline items={content.items} />
+        <Timeline items={content.items} highlightLimit={variant === "compact" ? 3 : undefined} />
       </Container>
     </Section>
   );

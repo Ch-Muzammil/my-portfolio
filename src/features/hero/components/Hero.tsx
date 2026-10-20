@@ -1,16 +1,20 @@
 import { ArrowRight, ArrowUpRight, MapPin, Sparkles } from "lucide-react";
 import Image from "next/image";
-import type { HeroContent, SiteContent } from "@/types/content";
+import type { HeroContent, SiteContent, SocialLink } from "@/types/content";
+import { BrandIcon } from "@/components/ui/BrandIcon";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { isPublishableHref } from "@/lib/links";
 
 interface HeroProps {
   hero: HeroContent;
   location: SiteContent["location"];
+  social: readonly SocialLink[];
 }
 
-export function Hero({ hero, location }: HeroProps) {
+export function Hero({ hero, location, social }: HeroProps) {
   const headingId = "hero-heading";
+  const links = social.filter((item) => isPublishableHref(item.href));
 
   return (
     <section className="hero" aria-labelledby={headingId}>
@@ -50,6 +54,22 @@ export function Hero({ hero, location }: HeroProps) {
                 {hero.secondaryAction}
                 <ArrowRight aria-hidden="true" />
               </Button>
+              {links.length > 0 ? (
+                <div className="hero-socials">
+                  {links.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="icon-button"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={item.label}
+                    >
+                      <BrandIcon name={item.icon} />
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </div>
             <dl className="hero-stats">
               {hero.stats.map((stat) => (

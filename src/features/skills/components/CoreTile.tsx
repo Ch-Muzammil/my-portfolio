@@ -1,26 +1,20 @@
-import { Code2, Component, Flame, Layers, PenTool, Zap, type LucideIcon } from "lucide-react";
+import type { CSSProperties } from "react";
 import type { SkillItem } from "@/types/content";
-
-const icons: Record<string, LucideIcon> = {
-  React: Code2,
-  "Next.js": Flame,
-  TypeScript: Component,
-  "JavaScript ES6+": Zap,
-  "Tailwind CSS": Layers,
-  Figma: PenTool,
-};
+import { BrandIcon, brandColors } from "@/components/ui/BrandIcon";
 
 interface CoreTileProps {
   skill: SkillItem;
 }
 
 export function CoreTile({ skill }: CoreTileProps) {
-  const Icon = icons[skill.name];
-
   return (
-    <div className="core-tile" data-spotlight>
+    <div
+      className="core-tile"
+      data-spotlight
+      style={{ "--brand": brandColors[skill.icon] } as CSSProperties}
+    >
       <div className="skill-icon" aria-hidden="true">
-        {Icon ? <Icon /> : null}
+        <BrandIcon name={skill.icon} />
       </div>
       <div>
         <p className="skill-name">{skill.name}</p>
