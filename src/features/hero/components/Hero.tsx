@@ -90,6 +90,7 @@ export function Hero({ hero, location, social }: HeroProps) {
               width={hero.image.width}
               height={hero.image.height}
               priority
+              quality={90}
               sizes="(max-width: 40rem) 80vw, (max-width: 64rem) 45vw, 34rem"
             />
             <figcaption className="hero-caption">

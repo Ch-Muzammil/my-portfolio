@@ -18,7 +18,7 @@ export function Header({ site, nav }: HeaderProps) {
         <div className="header-inner">
           <Link href="/" className="brand" aria-label={nav.brandLabel}>
             <span className="brand-mark" aria-hidden="true">
-              MH
+              {site.initials}
             </span>
             <span className="brand-name">{site.name}</span>
           </Link>

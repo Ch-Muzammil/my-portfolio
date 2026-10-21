@@ -4,6 +4,7 @@ const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000
 
 export const site: SiteContent = {
   name: "Muzammal Hussain",
+  initials: "MH",
   fullName: "Muzammal Hussain",
   role: "Software Engineer",
   email: "chmzml22@gmail.com",

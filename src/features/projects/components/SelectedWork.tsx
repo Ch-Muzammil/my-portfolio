@@ -1,14 +1,12 @@
 import type { Project, ProjectsContent } from "@/types/content";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { FeaturedProject } from "@/features/projects/components/FeaturedProject";
 import { ProjectGrid } from "@/features/projects/components/ProjectGrid";
 
 interface SelectedWorkProps {
   content: ProjectsContent;
-  featured: Project;
+  featured: readonly Project[];
   projects: readonly Project[];
 }
 
@@ -24,10 +22,10 @@ export function SelectedWork({ content, featured, projects }: SelectedWorkProps)
           href={content.linkHref}
           linkLabel={content.linkLabel}
         />
-        <Reveal variant="scale">
-          <FeaturedProject project={featured} indexLabel={content.featuredLabel} />
-        </Reveal>
-        <ProjectGrid projects={projects} />
+        <div className="selected-work">
+          <ProjectGrid projects={featured} size="lg" badge={content.featuredLabel} />
+          <ProjectGrid projects={projects} />
+        </div>
       </Container>
     </Section>
   );

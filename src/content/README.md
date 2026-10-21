@@ -21,11 +21,14 @@ The résumé file is `public/muzammal-resume.pdf`. Point `site.resumePath` at it
 
 ## Add a project
 
-1. Add an image under `public/images/` (WebP or AVIF preferred, JPG is fine).
+1. Add a folder under `public/images/projects/{slug}/` with:
+   - `card.jpg` (1600×1000) — home / work grid
+   - `cover.jpg` (2000×1250) — detail page hero
+   - optional later: `dashboard.jpg`, `flow.jpg` for the gallery
 2. Append an object to the `projects` array in `projects.ts`.
 3. Set `slug` to a unique URL segment. The page is `/work/[slug]`.
 4. Set `category` to one of the names in `filters`, or add a new filter name to that list.
-5. Fill `image.width` and `image.height` with the file’s pixel size.
+5. Fill `image` / `cover` width and height with each file’s pixel size.
 
 No component change is required. Unknown slugs 404.
 

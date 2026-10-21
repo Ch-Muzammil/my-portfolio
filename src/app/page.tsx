@@ -22,9 +22,8 @@ export const metadata = createPageMetadata({
 });
 
 export default function HomePage() {
-  const featured = projects[0];
-  if (!featured) return null;
-  const more = projects.filter((project) => project.slug !== featured.slug).slice(0, 3);
+  const featured = projects.slice(0, 2);
+  const more = projects.slice(2, 5);
 
   return (
     <>

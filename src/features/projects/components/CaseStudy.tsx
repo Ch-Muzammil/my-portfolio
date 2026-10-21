@@ -38,10 +38,11 @@ export function CaseStudy({ project, content, backHref }: CaseStudyProps) {
       <Reveal variant="scale">
         <div className="case-cover-wrap" data-spotlight>
           <Image
-            src={project.image.src}
-            alt={project.caseImageAlt}
-            width={project.image.width}
-            height={project.image.height}
+            src={project.cover.src}
+            alt={project.cover.alt}
+            width={project.cover.width}
+            height={project.cover.height}
+            quality={90}
             sizes="(max-width: 80rem) 100vw, 74rem"
             className="case-cover"
             priority

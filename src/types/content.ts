@@ -23,6 +23,7 @@ export interface SocialLink {
 
 export interface SiteContent {
   name: string;
+  initials: string;
   fullName: string;
   role: string;
   email: string;
@@ -115,7 +116,12 @@ export interface Project {
   kind: string;
   category: string;
   year: string;
+  /** Card thumbnail — 1600×1000 */
   image: ProjectImage;
+  /** Detail page cover — 2000×1250 */
+  cover: ProjectImage;
+  /** Extra case-study screens (dashboard, flow) — optional for now */
+  gallery?: readonly ProjectImage[];
   caseImageAlt: string;
   metric: string;
   tags: readonly string[];

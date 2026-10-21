@@ -6,7 +6,7 @@ export const footer: FooterContent = {
   navigateLabel: "Navigate",
   connectLabel: "Connect",
   resume: "Résumé",
-  copyright: "© 2026 Muzammal Hussain. Crafted with care & a little caffeine.",
+  copyright: "© 2026 · Crafted with care & a little caffeine.",
   talk: "Let’s talk",
   talkHref: "/contact",
   backToTop: "Back to top",

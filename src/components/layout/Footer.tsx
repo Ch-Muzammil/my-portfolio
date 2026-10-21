@@ -62,13 +62,16 @@ export function Footer({ footer, site, nav }: FooterProps) {
             </ul>
           </div>
         </div>
-        <p className="footer-word" aria-hidden="true">
-          {site.name.split(" ").map((word) => (
-            <span key={word}>{word}</span>
-          ))}
-        </p>
         <div className="footer-inner">
-          <p>{footer.copyright}</p>
+          <div className="footer-sign">
+            <p className="footer-word">
+              {site.name.split(" ").map((word) => (
+                <span key={word}>{word}</span>
+              ))}
+            </p>
+            <span className="footer-sign-divider" aria-hidden="true" />
+            <p>{footer.copyright}</p>
+          </div>
           <div className="footer-links">
             <span className="footer-location">{site.location}</span>
             <Link href={footer.talkHref}>

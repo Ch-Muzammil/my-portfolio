@@ -27,6 +27,7 @@ export function About({ content, variant = "compact" }: AboutProps) {
                   alt={portrait.alt}
                   width={portrait.image.width}
                   height={portrait.image.height}
+                  quality={90}
                   sizes="(max-width: 40rem) 100vw, (max-width: 64rem) 34vw, 26rem"
                 />
                 <figcaption className="portrait-caption">{portrait.caption}</figcaption>
