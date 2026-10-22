@@ -9,7 +9,7 @@ export const skills: SkillsContent = {
   traits: ["Pixel-conscious", "Performance-driven", "Always learning"],
   core: [
     { name: "React", level: "Reusable components", icon: "react" },
-    { name: "Next.js", level: "App Router · SSR", icon: "nextjs" },
+    { name: "Next.js", level: "App Router · SSR / SSG", icon: "nextjs" },
     { name: "TypeScript", level: "Type-safe codebases", icon: "typescript" },
     { name: "JavaScript", level: "ES6+ fundamentals", icon: "javascript" },
     { name: "Tailwind CSS", level: "Design systems", icon: "tailwind" },
@@ -23,7 +23,6 @@ export const skills: SkillsContent = {
         "Material UI",
         "Radix",
         "Framer Motion",
-        "Storybook",
         "Responsive design",
         "Design systems",
       ],
@@ -34,11 +33,20 @@ export const skills: SkillsContent = {
     },
     {
       label: "Backend & APIs",
-      skills: ["Supabase", "Firebase", "FastAPI", "Next.js API routes", "REST & GraphQL"],
+      skills: [
+        "Node.js",
+        "Next.js API routes",
+        "Supabase",
+        "PostgreSQL",
+        "Redis",
+        "FastAPI",
+        "Python",
+        "Firebase",
+      ],
     },
     {
       label: "Integrations",
-      skills: ["Stripe payments", "Persona KYC", "Socket.io real-time", "Nuitée liteAPI"],
+      skills: ["Stripe", "Persona KYC", "Socket.io", "GoHighLevel", "Mapbox", "Nuitee"],
     },
     {
       label: "Testing & Quality",
@@ -50,7 +58,7 @@ export const skills: SkillsContent = {
     },
     {
       label: "Tools & Workflow",
-      skills: ["Git & GitHub", "Vite", "Vercel", "CI/CD", "Agile / Scrum", "Lovable AI"],
+      skills: ["Git & GitHub", "Vite", "Vercel"],
     },
   ],
 };

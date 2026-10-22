@@ -7,7 +7,7 @@ export const nav: NavContent = {
   close: "Close navigation",
   brandLabel: "Muzammal Hussain home",
   talk: "Let’s talk",
-  talkHref: "/#contact",
+  talkHref: "/contact",
   resume: "Résumé",
   resumeHref: "/resume",
   viewResume: "View résumé",

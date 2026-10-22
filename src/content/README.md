@@ -4,20 +4,20 @@ Edit these files to make this portfolio yours. Components read nothing from this
 
 | File            | What it controls                                                                                                                                                                |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `site.ts`       | Name, role, document title, default description, location, email, résumé path, social links, and the public site URL (`NEXT_PUBLIC_SITE_URL`, default `http://localhost:3000`). |
+| `site.ts`       | Name, role, document title, default description, location, email, phone, WhatsApp link, social links, and the public site URL (`NEXT_PUBLIC_SITE_URL`, default `http://localhost:3000`). |
 | `nav.ts`        | Header links, résumé link, and the “Let’s talk” link.                                                                                                                           |
 | `hero.ts`       | Home headline, intro, actions, stats, caption, and hero image.                                                                                                                  |
 | `tech-strip.ts` | The scrolling technology names under the hero.                                                                                                                                  |
-| `projects.ts`   | Every project and the work-page labels. The array order is the display order. The first project is the featured project on the home page.                                       |
+| `projects.ts`   | Every project and the work-page labels. The array order is the display order. The first two projects are the featured cards on the home page.                                    |
 | `skills.ts`     | Core stack and skill groups.                                                                                                                                                    |
 | `about.ts`      | About copy, portrait text, stats, quote, and the about-page intro.                                                                                                              |
 | `experience.ts` | Jobs, the experience-page intro, and the résumé-page intro.                                                                                                                     |
-| `contact.ts`    | Contact panel, contact page, form labels, and the mailto message.                                                                                                               |
+| `contact.ts`    | Contact panel, contact page, form labels, and the notes shown while a message sends. The form posts to `/api/contact`.                                                          |
 | `footer.ts`     | Footer line and the footer contact link.                                                                                                                                        |
 
 Social `href` values that start with `TODO` are not rendered. Replace `TODO` with a real `https://` URL and the link appears. Do not leave a fake button in its place.
 
-The résumé file is `public/muzammal-resume.pdf`. Point `site.resumePath` at it.
+Résumé files live in `public/resumes/`. The résumé page offers both: Software Engineer and Frontend Engineer. The header and footer stay a single Résumé link.
 
 ## Add a project
 

@@ -53,6 +53,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Contact
         content={contact}
         email={site.email}
+        phone={site.phone}
+        whatsappHref={site.whatsappHref}
         location={site.location}
         social={site.social}
         variant="panel"

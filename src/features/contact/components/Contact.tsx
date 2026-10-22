@@ -1,6 +1,7 @@
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import type { ContactContent, SiteContent, SocialLink } from "@/types/content";
 import { BrandIcon } from "@/components/ui/BrandIcon";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -12,12 +13,22 @@ import { CopyEmailButton } from "@/features/contact/components/CopyEmailButton";
 interface ContactProps {
   content: ContactContent;
   email: SiteContent["email"];
+  phone: SiteContent["phone"];
+  whatsappHref: SiteContent["whatsappHref"];
   location: SiteContent["location"];
   social: readonly SocialLink[];
   variant?: "panel" | "page";
 }
 
-export function Contact({ content, email, location, social, variant = "panel" }: ContactProps) {
+export function Contact({
+  content,
+  email,
+  phone,
+  whatsappHref,
+  location,
+  social,
+  variant = "panel",
+}: ContactProps) {
   const links = social.filter((item) => isPublishableHref(item.href));
 
   if (variant === "page") {
@@ -31,6 +42,14 @@ export function Contact({ content, email, location, social, variant = "panel" }:
                 <Mail />
               </span>
               <a href={`mailto:${email}`}>{email}</a>
+            </div>
+            <div className="contact-phone">
+              <span className="contact-icon" aria-hidden="true">
+                <WhatsAppIcon />
+              </span>
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                {phone}
+              </a>
             </div>
             <CopyEmailButton
               email={email}
@@ -93,6 +112,13 @@ export function Contact({ content, email, location, social, variant = "panel" }:
                   <a href={`mailto:${email}`} aria-label={content.emailAria}>
                     <Mail aria-hidden="true" />
                     <span>{email}</span>
+                    <ArrowUpRight className="contact-link-arrow" aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={`WhatsApp ${phone}`}>
+                    <WhatsAppIcon />
+                    <span>{phone}</span>
                     <ArrowUpRight className="contact-link-arrow" aria-hidden="true" />
                   </a>
                 </li>

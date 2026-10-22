@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUp, ArrowUpRight, FileText, Mail } from "lucide-react";
 import type { FooterContent, NavContent, SiteContent } from "@/types/content";
 import { BrandIcon } from "@/components/ui/BrandIcon";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Container } from "@/components/ui/Container";
 import { isPublishableHref } from "@/lib/links";
 
@@ -42,6 +43,12 @@ export function Footer({ footer, site, nav }: FooterProps) {
                 <a href={`mailto:${site.email}`}>
                   <Mail aria-hidden="true" />
                   {site.email}
+                </a>
+              </li>
+              <li>
+                <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={`WhatsApp ${site.phone}`}>
+                  <WhatsAppIcon />
+                  {site.phone}
                 </a>
               </li>
               {links.map((item) => (

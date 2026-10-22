@@ -21,7 +21,7 @@ export function TimelineItem({ item, index, highlightLimit }: TimelineItemProps)
         <p className="experience-date">{item.date}</p>
         <p className="experience-location">
           <MapPin aria-hidden="true" />
-          {item.location}
+          <span>{item.location}</span>
         </p>
       </div>
       <div className="experience-main">

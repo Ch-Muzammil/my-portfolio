@@ -22,6 +22,8 @@ export default function ContactPage() {
       <Contact
         content={contact}
         email={site.email}
+        phone={site.phone}
+        whatsappHref={site.whatsappHref}
         location={site.location}
         social={site.social}
         variant="page"

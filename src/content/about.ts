@@ -29,7 +29,7 @@ export const about: AboutContent = {
   },
   stats: [
     { value: "3+", label: "Years of experience" },
-    { value: "6+", label: "Projects shipped" },
+    { value: "10", label: "Projects shipped" },
     { value: "98", label: "Lighthouse score" },
   ],
   quote: "“The best interfaces don’t just look good. They make life a little easier.”",

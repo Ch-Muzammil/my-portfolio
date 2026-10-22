@@ -4,7 +4,7 @@ export const contact: ContactContent = {
   meta: {
     title: "Let’s talk",
     description:
-      "Have a frontend project or engineering opportunity in mind? Start a conversation with Muzammal.",
+      "Have a project or an engineering role in mind? Start a conversation with Muzammal.",
   },
   panelEyebrow: "Have something in mind?",
   panelTitle: "Let’s make something",
@@ -29,9 +29,11 @@ export const contact: ContactContent = {
   messageLabel: "What do you have in mind?",
   messagePlaceholder: "A little about your project or opportunity…",
   submitLabel: "Let’s start a conversation",
-  idleNote: "Opens your email app with your message ready to review.",
-  sentNote:
-    "Your email app has been requested. Review and send your message there; nothing has been sent from this page.",
+  sendingLabel: "Sending…",
+  idleNote: "Your message reaches me directly. I’ll reply to the email address you enter.",
+  sentNote: "Sent. I’ll reply to the email you entered.",
+  errorNote: "That didn’t send. Email me directly at",
+  rateLimitNote: "That note is already with me. You can send another in a minute.",
   subjectPrefix: "Portfolio inquiry from ",
   bodyFrom: "From: ",
   bodyEmail: "Email: ",

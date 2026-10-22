@@ -27,8 +27,9 @@ export interface SiteContent {
   fullName: string;
   role: string;
   email: string;
+  phone: string;
+  whatsappHref: string;
   location: string;
-  resumePath: string;
   url: string;
   title: string;
   description: string;
@@ -280,7 +281,6 @@ export interface ExperienceContent {
   muted: string;
   linkLabel: string;
   linkHref: string;
-  downloadLabel: string;
   items: readonly ExperienceItem[];
   page: {
     eyebrow: string;
@@ -294,6 +294,10 @@ export interface ExperienceContent {
     summary: string;
     skills: string;
     note: string;
+    downloads: readonly {
+      label: string;
+      href: string;
+    }[];
   };
 }
 
@@ -321,8 +325,11 @@ export interface ContactContent {
   messageLabel: string;
   messagePlaceholder: string;
   submitLabel: string;
+  sendingLabel: string;
   idleNote: string;
   sentNote: string;
+  errorNote: string;
+  rateLimitNote: string;
   subjectPrefix: string;
   bodyFrom: string;
   bodyEmail: string;
