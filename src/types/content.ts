@@ -107,6 +107,14 @@ export interface ProjectImage {
   width: number;
   height: number;
   alt: string;
+  /** Gallery tile label and lightbox caption */
+  title?: string;
+  caption?: string;
+}
+
+export interface ProjectNote {
+  title: string;
+  body: string;
 }
 
 export interface Project {
@@ -116,6 +124,8 @@ export interface Project {
   kind: string;
   category: string;
   year: string;
+  /** Public product URL; prefix with "TODO" to hide until it is live */
+  liveUrl?: string;
   /** Card thumbnail — 1600×1000 */
   image: ProjectImage;
   /** Detail page cover — 2000×1250 */
@@ -129,6 +139,20 @@ export interface Project {
   challenge: string;
   solution: string;
   features: readonly string[];
+  /** Grouped "What I built" cards; falls back to `features` when absent */
+  highlights?: readonly ProjectNote[];
+  architecture?: {
+    stack: readonly { label: string; items: readonly string[] }[];
+    decisions: readonly ProjectNote[];
+  };
+  outcomes?: {
+    delivered: readonly string[];
+    lesson?: string;
+  };
+  /** Optional overrides for the case-study facts rail */
+  role?: string;
+  type?: string;
+  focus?: string;
 }
 
 export interface ProjectsContent {
@@ -153,9 +177,29 @@ export interface ProjectsContent {
     role: string;
     type: string;
     focus: string;
+    defaultRole: string;
+    defaultType: string;
+    defaultFocus: string;
     challenge: string;
     approach: string;
     highlights: string;
+    year: string;
+    stack: string;
+    galleryEyebrow: string;
+    galleryTitle: string;
+    galleryHint: string;
+    viewScreen: string;
+    architectureEyebrow: string;
+    architectureTitle: string;
+    decisionsLabel: string;
+    outcomesEyebrow: string;
+    outcomesTitle: string;
+    deliveredLabel: string;
+    lessonLabel: string;
+    nextProject: string;
+    moreTitle: string;
+    viewAll: string;
+    visitLive: string;
     unavailableTitle: string;
     unavailableDescription: string;
   };

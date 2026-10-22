@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Soleya — Admin Dashboard</title>
+    <link rel="stylesheet" href="./shared.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="app">
+        <aside class="sidebar">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3l1.6 5.2L19 10l-5.4 1.8L12 17l-1.6-5.2L5 10l5.4-1.8L12 3z" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </span>
+            <div class="brand-text">
+              <div class="brand-name serif">Soleya</div>
+              <div class="brand-sub">Admin console</div>
+            </div>
+          </div>
+          <nav class="nav">
+            <a class="active" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Dashboard</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 19a7 7 0 0 1 14 0"/></svg>Users</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Verification</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5h11a3 3 0 0 1 3 3v11H8a3 3 0 0 1-3-3V5z"/><path d="M8 5V4a2 2 0 0 1 2-2h7"/></svg>Bookings</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M12 8v4M12 15h.01"/></svg>Disputes</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>Payouts</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Categories</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M8 4v4M16 4v4M5 12h14v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7z"/></svg>Promo codes</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-9z"/></svg>Homepage</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</a>
+          </nav>
+        </aside>
+
+        <main class="main">
+          <div class="topbar">
+            <div class="pills">
+              <span class="pill">Admin</span>
+              <span class="pill soft">Admin console</span>
+            </div>
+            <span class="avatar">AD</span>
+          </div>
+
+          <div class="content">
+            <div class="page-head">
+              <div>
+                <h1 class="serif">Platform overview</h1>
+                <p>Thursday, October 22, 2026 · all figures Montreal-wide, in CAD.</p>
+              </div>
+            </div>
+
+            <div class="admin-stats">
+              <article class="card stat">
+                <div class="stat-top"><span class="stat-label">Bookings</span></div>
+                <div class="stat-value serif">128</div>
+                <p class="stat-meta">18 active · 96 completed · 14 cancelled</p>
+              </article>
+              <article class="card stat">
+                <div class="stat-top"><span class="stat-label">GMV</span></div>
+                <div class="stat-value serif">$48.2k</div>
+                <p class="stat-meta">$6.4k in escrow</p>
+              </article>
+              <article class="card stat">
+                <div class="stat-top"><span class="stat-label">Freelancers</span></div>
+                <div class="stat-value serif">64</div>
+                <p class="stat-meta">51 approved</p>
+              </article>
+              <article class="card stat">
+                <div class="stat-top"><span class="stat-label">Customers</span></div>
+                <div class="stat-value serif">312</div>
+                <p class="stat-meta">Registered on the platform</p>
+              </article>
+              <article class="card stat">
+                <div class="stat-top"><span class="stat-label">Commission earned</span></div>
+                <div class="stat-value serif">$7.2k</div>
+                <p class="stat-meta">Platform take from completed bookings</p>
+              </article>
+              <article class="card stat">
+                <div class="stat-top"><span class="stat-label">Open disputes</span></div>
+                <div class="stat-value serif">3</div>
+                <p class="stat-meta">Cases still in play</p>
+              </article>
+            </div>
+
+            <div class="page-head" style="margin-bottom: 0.85rem">
+              <div>
+                <h1 class="serif" style="font-size: 1.35rem">Needs attention</h1>
+              </div>
+            </div>
+
+            <div class="attention">
+              <article class="card attn">
+                <div class="attn-top">
+                  <span class="stat-label">Pending review</span>
+                  <span class="attn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                </div>
+                <div class="stat-value serif" style="font-size: 1.85rem">4</div>
+                <h3>Pending verifications</h3>
+                <p>Freelancer profiles in review</p>
+              </article>
+              <article class="card attn">
+                <div class="attn-top">
+                  <span class="stat-label">Services</span>
+                  <span class="attn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+                </div>
+                <div class="stat-value serif" style="font-size: 1.85rem">7</div>
+                <h3>Services pending review</h3>
+                <p>New or updated service listings</p>
+              </article>
+              <article class="card attn">
+                <div class="attn-top">
+                  <span class="stat-label">Payouts</span>
+                  <span class="attn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></span>
+                </div>
+                <div class="stat-value serif" style="font-size: 1.85rem">2</div>
+                <h3>Payout approvals</h3>
+                <p>Queued for release</p>
+              </article>
+            </div>
+
+            <div class="row-2" style="margin-top: 0.95rem">
+              <section class="card panel">
+                <div class="panel-head">
+                  <h2 class="serif">Bookings volume</h2>
+                  <span>Last 30 days</span>
+                </div>
+                <div class="bars" aria-hidden="true">
+                  <div class="bar" style="height:34%"></div>
+                  <div class="bar" style="height:48%"></div>
+                  <div class="bar" style="height:41%"></div>
+                  <div class="bar" style="height:62%"></div>
+                  <div class="bar" style="height:55%"></div>
+                  <div class="bar" style="height:70%"></div>
+                  <div class="bar" style="height:63%"></div>
+                  <div class="bar" style="height:78%"></div>
+                  <div class="bar" style="height:66%"></div>
+                  <div class="bar" style="height:84%"></div>
+                  <div class="bar" style="height:72%"></div>
+                  <div class="bar" style="height:90%"></div>
+                </div>
+              </section>
+              <section class="card panel">
+                <div class="panel-head">
+                  <h2 class="serif">Commission revenue</h2>
+                  <span>Released · 30 days</span>
+                </div>
+                <div class="bars" aria-hidden="true">
+                  <div class="bar" style="height:22%"></div>
+                  <div class="bar" style="height:30%"></div>
+                  <div class="bar" style="height:28%"></div>
+                  <div class="bar" style="height:44%"></div>
+                  <div class="bar" style="height:39%"></div>
+                  <div class="bar" style="height:52%"></div>
+                  <div class="bar" style="height:48%"></div>
+                  <div class="bar" style="height:61%"></div>
+                  <div class="bar" style="height:57%"></div>
+                  <div class="bar" style="height:69%"></div>
+                  <div class="bar" style="height:64%"></div>
+                  <div class="bar" style="height:76%"></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

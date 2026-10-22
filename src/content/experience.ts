@@ -25,7 +25,7 @@ export const experience: ExperienceContent = {
         "Shipped Stripe payments, Persona KYC identity verification, Socket.io real-time features, and multi-role access systems across all 5 applications.",
         "Set up Husky pre-commit hooks enforcing lint and test checks, with Vitest unit tests and Playwright E2E tests for critical payment and booking flows.",
         "Applied WCAG 2.1 AA practices — semantic markup, keyboard navigation, and ARIA roles — across shared components used in every application.",
-        "Currently building Soleya, a two-sided marketplace for makeup artists with approval-gated listings, instant and scheduled booking, and a Next.js + FastAPI review and dispute system.",
+        "Designed and built Soleya end to end — a three-sided Montreal beauty marketplace (public site, Soleya Pro, admin) with original UI, status-aware navigation, Stripe Connect, realtime chat, and verification / dispute / payout queues.",
       ],
       tags: ["Next.js", "React", "TypeScript", "Supabase", "Stripe", "Socket.io", "Playwright"],
       current: true,

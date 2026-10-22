@@ -5,6 +5,7 @@ import { contact } from "@/content/contact";
 import { projects, projectsContent } from "@/content/projects";
 import { site } from "@/content/site";
 import { createPageMetadata } from "@/lib/seo";
+import type { Project } from "@/types/content";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -33,13 +34,19 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
+  const projectIndex = projects.findIndex((item) => item.slug === slug);
+  const project = projects[projectIndex];
   if (!project) notFound();
+  const moreProjects = Array.from(
+    { length: Math.min(2, projects.length - 1) },
+    (_, offset) => projects[(projectIndex + offset + 1) % projects.length],
+  ).filter((item): item is Project => item !== undefined);
 
   return (
     <>
       <CaseStudy
         project={project}
+        moreProjects={moreProjects}
         content={projectsContent.caseStudy}
         backHref={projectsContent.linkHref}
       />

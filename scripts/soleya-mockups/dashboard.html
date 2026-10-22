@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Soleya — Freelancer Dashboard</title>
+    <link rel="stylesheet" href="./shared.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="app">
+        <aside class="sidebar">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3l1.6 5.2L19 10l-5.4 1.8L12 17l-1.6-5.2L5 10l5.4-1.8L12 3z" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </span>
+            <div class="brand-text">
+              <div class="brand-name serif">Soleya Pro</div>
+            </div>
+          </div>
+          <nav class="nav">
+            <a class="active" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+              Dashboard
+            </a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Bookings</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>Messages</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>Earnings</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.4 4.9L20 9l-4 3.9.9 5.4L12 15.8 7.1 18.3 8 12.9 4 9l5.6-1.1L12 3z"/></svg>Reviews</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M12 8v4M12 15h.01"/></svg>Disputes</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 19a7 7 0 0 1 14 0"/></svg>Profile</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</a>
+          </nav>
+        </aside>
+
+        <main class="main">
+          <div class="topbar">
+            <div class="pills">
+              <span class="pill">Freelancer</span>
+              <span class="pill ok">Online</span>
+            </div>
+            <div class="pills">
+              <div class="presence" aria-label="Availability">
+                <span class="on">Online</span>
+                <span>Paused</span>
+                <span>Offline</span>
+              </div>
+              <span class="avatar">SH</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="page-head">
+              <div>
+                <h1 class="serif">Hi, Shaun</h1>
+                <p>Here’s how your business is doing today, Thursday, October 22.</p>
+              </div>
+            </div>
+
+            <div class="grid-stats">
+              <article class="card stat">
+                <div class="stat-top">
+                  <span class="stat-label">Today’s bookings</span>
+                  <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span>
+                </div>
+                <div class="stat-value serif">3</div>
+                <p class="stat-meta">1 pending confirmation</p>
+              </article>
+              <article class="card stat">
+                <div class="stat-top">
+                  <span class="stat-label">Today’s earnings</span>
+                  <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></span>
+                </div>
+                <div class="stat-value serif">CA$420</div>
+                <p class="stat-meta">From completed jobs today</p>
+              </article>
+              <article class="card stat">
+                <div class="stat-top">
+                  <span class="stat-label">Average rating</span>
+                  <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.4 4.9L20 9l-4 3.9.9 5.4L12 15.8 7.1 18.3 8 12.9 4 9l5.6-1.1L12 3z"/></svg></span>
+                </div>
+                <div class="stat-value serif">4.9</div>
+                <p class="stat-meta">Based on 48 reviews</p>
+              </article>
+              <article class="card stat">
+                <div class="stat-top">
+                  <span class="stat-label">Completion rate</span>
+                  <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 10 17l-5-5"/></svg></span>
+                </div>
+                <div class="stat-value serif">98%</div>
+                <p class="stat-meta">Across completed jobs</p>
+              </article>
+            </div>
+
+            <div class="row-2">
+              <section class="card panel">
+                <div class="panel-head">
+                  <h2 class="serif">Earnings trend</h2>
+                  <span>October 2026</span>
+                </div>
+                <div class="bars" aria-hidden="true">
+                  <div class="bar" style="height:28%"></div>
+                  <div class="bar" style="height:42%"></div>
+                  <div class="bar" style="height:35%"></div>
+                  <div class="bar" style="height:58%"></div>
+                  <div class="bar" style="height:46%"></div>
+                  <div class="bar" style="height:72%"></div>
+                  <div class="bar" style="height:64%"></div>
+                  <div class="bar" style="height:80%"></div>
+                  <div class="bar" style="height:55%"></div>
+                  <div class="bar" style="height:68%"></div>
+                  <div class="bar" style="height:88%"></div>
+                  <div class="bar" style="height:74%"></div>
+                </div>
+              </section>
+              <section class="card panel">
+                <div class="panel-head">
+                  <h2 class="serif">Payout connection</h2>
+                  <a href="#">See payouts</a>
+                </div>
+                <div class="checklist">
+                  <div class="check done"><span class="dot"></span>Stripe account created</div>
+                  <div class="check done"><span class="dot"></span>Details submitted to Stripe</div>
+                  <div class="check done"><span class="dot"></span>Charges enabled</div>
+                  <div class="check done"><span class="dot"></span>Payouts enabled</div>
+                </div>
+                <p class="note">You’re ready to take bookings. Payouts release after each completed job.</p>
+              </section>
+            </div>
+
+            <div class="lists">
+              <section class="card panel">
+                <div class="panel-head">
+                  <h2 class="serif">Incoming requests</h2>
+                  <a href="#">View all</a>
+                </div>
+                <div class="list">
+                  <div class="item">
+                    <span class="item-avatar">AM</span>
+                    <div>
+                      <strong>Amélie Martin</strong>
+                      <small>Balayage · Mile End · Instant</small>
+                    </div>
+                    <div class="item-actions">
+                      <span class="btn ghost">Decline</span>
+                      <span class="btn primary">Accept</span>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <span class="item-avatar">CL</span>
+                    <div>
+                      <strong>Camille Leduc</strong>
+                      <small>Bridal makeup · Plateau · Tomorrow 10:00</small>
+                    </div>
+                    <div class="item-actions">
+                      <span class="btn ghost">Decline</span>
+                      <span class="btn primary">Accept</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="card panel">
+                <div class="panel-head">
+                  <h2 class="serif">Upcoming jobs</h2>
+                  <a href="#">View all</a>
+                </div>
+                <div class="list">
+                  <div class="item">
+                    <span class="item-avatar">NR</span>
+                    <div>
+                      <strong>Nadia Roy</strong>
+                      <small>Gel manicure · Griffintown</small>
+                    </div>
+                    <span class="time">Today · 2:30 PM</span>
+                  </div>
+                  <div class="item">
+                    <span class="item-avatar">JB</span>
+                    <div>
+                      <strong>Juliette Beaulieu</strong>
+                      <small>Blowout · Outremont</small>
+                    </div>
+                    <span class="time">Fri · 11:00 AM</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

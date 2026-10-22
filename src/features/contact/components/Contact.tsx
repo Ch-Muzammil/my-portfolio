@@ -87,13 +87,6 @@ export function Contact({ content, email, location, social, variant = "panel" }:
                   {content.primaryAction}
                   <ArrowUpRight aria-hidden="true" />
                 </Button>
-                <CopyEmailButton
-                  email={email}
-                  copyLabel={content.copyLabel}
-                  copiedLabel={content.copiedLabel}
-                  copyAria={content.copyAria}
-                  fallback={content.clipboardFallback}
-                />
               </div>
               <ul className="contact-links">
                 <li>
