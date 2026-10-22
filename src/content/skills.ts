@@ -29,7 +29,7 @@ export const skills: SkillsContent = {
     },
     {
       label: "State & Data",
-      skills: ["TanStack Query", "Zustand / Redux", "Context API", "Axios", "Zod"],
+      skills: ["TanStack Query", "Zustand / Redux", "Context API", "React Hook Form", "Axios", "Zod"],
     },
     {
       label: "Backend & APIs",

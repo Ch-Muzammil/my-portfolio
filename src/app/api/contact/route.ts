@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { contact } from "@/content/contact";
 import { site } from "@/content/site";
 import { contactEmail } from "@/lib/contact-email";
+import { contactSchema } from "@/lib/contact-schema";
 
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const WINDOW_MS = 60 * 1000;
 const recent = new Map<string, number>();
 
@@ -50,27 +50,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  if (
-    typeof fields.name !== "string" ||
-    typeof fields.email !== "string" ||
-    typeof fields.message !== "string"
-  ) {
+  const parsed = contactSchema.safeParse({
+    name: fields.name,
+    email: fields.email,
+    message: fields.message,
+  });
+  if (!parsed.success) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  const name = fields.name.trim().replace(/\s+/g, " ");
-  const email = fields.email.trim();
-  const message = fields.message.trim();
-  if (
-    name.length < 2 ||
-    name.length > 80 ||
-    !EMAIL.test(email) ||
-    email.length > 120 ||
-    message.length < 10 ||
-    message.length > 4000
-  ) {
-    return NextResponse.json({ ok: false }, { status: 400 });
-  }
+  const { name, email, message } = parsed.data;
 
   const ip = clientIp(request);
   const waitMs = Math.max(remaining(`ip:${ip}`), remaining(`email:${email.toLowerCase()}`));

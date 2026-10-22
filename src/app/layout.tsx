@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header site={site} nav={nav} />
         <main id="main-content">{children}</main>
         <Footer footer={footer} site={site} nav={nav} />
+        <SpeedInsights />
       </body>
     </html>
   );

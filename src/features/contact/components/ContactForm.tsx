@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type BaseSyntheticEvent } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowUpRight } from "lucide-react";
+import { useForm } from "react-hook-form";
 import type { ContactContent } from "@/types/content";
 import { Button } from "@/components/ui/Button";
+import { contactSchema, type ContactValues } from "@/lib/contact-schema";
 
 interface ContactFormProps {
   content: ContactContent;
@@ -14,10 +17,30 @@ type FormStatus = "idle" | "sending" | "sent" | "limited" | "error";
 
 const HOLD_SECONDS = 60;
 
-// Client leaf: posts the message, holds a steady button, and reports the result.
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <span id={id} className="field-error">
+      {message}
+    </span>
+  );
+}
+
+// Client leaf: validates with the shared schema, then posts and holds the button.
 export function ContactForm({ content, email }: ContactFormProps) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [holdFor, setHoldFor] = useState(0);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: { name: "", email: "", message: "" },
+    mode: "onSubmit",
+    reValidateMode: "onChange",
+  });
 
   useEffect(() => {
     if (holdFor <= 0) return;
@@ -28,23 +51,17 @@ export function ContactForm({ content, email }: ContactFormProps) {
     return () => window.clearTimeout(id);
   }, [holdFor]);
 
-  async function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function submit(values: ContactValues, event?: BaseSyntheticEvent) {
     if (status === "sending" || status === "sent" || status === "limited") return;
-    const form = event.currentTarget;
-    const data = new FormData(form);
+    const form = event?.target instanceof HTMLFormElement ? event.target : null;
+    const website = form ? String(new FormData(form).get("website") ?? "") : "";
     setStatus("sending");
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.get("name"),
-          email: data.get("email"),
-          message: data.get("message"),
-          website: data.get("website"),
-        }),
+        body: JSON.stringify({ ...values, website }),
       });
       if (response.status === 429) {
         const body = (await response.json().catch(() => null)) as { retryAfter?: number } | null;
@@ -58,7 +75,8 @@ export function ContactForm({ content, email }: ContactFormProps) {
         setStatus("error");
         return;
       }
-      form.reset();
+      form?.reset();
+      reset();
       setStatus("sent");
       setHoldFor(HOLD_SECONDS);
     } catch {
@@ -78,24 +96,39 @@ export function ContactForm({ content, email }: ContactFormProps) {
   const held = status === "sending" || status === "sent" || status === "limited";
 
   return (
-    <form className="contact-form" onSubmit={submit}>
+    <form className="contact-form" noValidate onSubmit={handleSubmit(submit)}>
       <label>
         {content.nameLabel}
-        <input name="name" autoComplete="name" required minLength={2} placeholder={content.namePlaceholder} />
+        <input
+          autoComplete="name"
+          placeholder={content.namePlaceholder}
+          aria-invalid={Boolean(errors.name)}
+          aria-describedby={errors.name ? "contact-name-error" : undefined}
+          {...register("name")}
+        />
+        <FieldError id="contact-name-error" message={errors.name?.message} />
       </label>
       <label>
         {content.emailLabel}
         <input
-          name="email"
           type="email"
           autoComplete="email"
-          required
           placeholder={content.emailPlaceholder}
+          aria-invalid={Boolean(errors.email)}
+          aria-describedby={errors.email ? "contact-email-error" : undefined}
+          {...register("email")}
         />
+        <FieldError id="contact-email-error" message={errors.email?.message} />
       </label>
       <label>
         {content.messageLabel}
-        <textarea name="message" required minLength={10} placeholder={content.messagePlaceholder} />
+        <textarea
+          placeholder={content.messagePlaceholder}
+          aria-invalid={Boolean(errors.message)}
+          aria-describedby={errors.message ? "contact-message-error" : undefined}
+          {...register("message")}
+        />
+        <FieldError id="contact-message-error" message={errors.message?.message} />
       </label>
       <input
         name="website"
