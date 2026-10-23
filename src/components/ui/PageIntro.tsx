@@ -6,7 +6,7 @@ interface PageIntroProps {
   title: string;
   accent?: string;
   suffix?: string;
-  description?: string;
+  description?: string | readonly string[];
   status?: boolean;
   children?: ReactNode;
 }
@@ -42,7 +42,13 @@ export function PageIntro({
         ) : null}
       </h1>
       <div className="page-intro-body">
-        {description ? <p className="body-copy">{description}</p> : null}
+        {description
+          ? (Array.isArray(description) ? description : [description]).map((paragraph) => (
+              <p key={paragraph} className="body-copy">
+                {paragraph}
+              </p>
+            ))
+          : null}
         {children}
       </div>
     </Container>

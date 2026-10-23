@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import type { ContactContent } from "@/types/content";
 import { Button } from "@/components/ui/Button";
+import { notify } from "@/components/ui/Toaster";
 import { contactSchema, type ContactValues } from "@/lib/contact-schema";
 
 interface ContactFormProps {
@@ -69,29 +70,24 @@ export function ContactForm({ content, email }: ContactFormProps) {
           body && typeof body.retryAfter === "number" ? body.retryAfter : HOLD_SECONDS;
         setStatus("limited");
         setHoldFor(retryAfter);
+        notify("notice", content.limitTitle, content.rateLimitNote);
         return;
       }
       if (!response.ok) {
         setStatus("error");
+        notify("error", content.errorTitle, `${content.errorNote} ${email}.`);
         return;
       }
       form?.reset();
       reset();
       setStatus("sent");
       setHoldFor(HOLD_SECONDS);
+      notify("success", content.sentTitle, content.sentNote);
     } catch {
       setStatus("error");
+      notify("error", content.errorTitle, `${content.errorNote} ${email}.`);
     }
   }
-
-  const feedback =
-    status === "limited"
-      ? content.rateLimitNote
-      : status === "error"
-        ? `${content.errorNote} ${email}.`
-        : status === "sent"
-          ? content.sentNote
-          : content.idleNote;
 
   const held = status === "sending" || status === "sent" || status === "limited";
 
@@ -159,9 +155,7 @@ export function ContactForm({ content, email }: ContactFormProps) {
           <span data-face="sent">Sent</span>
         </span>
       </Button>
-      <p className="form-note" role="status">
-        {feedback}
-      </p>
+      <p className="form-note">{content.idleNote}</p>
     </form>
   );
 }

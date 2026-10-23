@@ -28,8 +28,16 @@ export const skills: SkillsContent = {
       ],
     },
     {
+      label: "Forms",
+      skills: ["React Hook Form", "Formik"],
+    },
+    {
+      label: "Schemas",
+      skills: ["Zod", "Yup"],
+    },
+    {
       label: "State & Data",
-      skills: ["TanStack Query", "Zustand / Redux", "Context API", "React Hook Form", "Axios", "Zod"],
+      skills: ["TanStack Query", "Zustand / Redux", "Context API", "Axios"],
     },
     {
       label: "Backend & APIs",

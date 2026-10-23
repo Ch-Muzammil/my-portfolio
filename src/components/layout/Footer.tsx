@@ -40,9 +40,9 @@ export function Footer({ footer, site, nav }: FooterProps) {
             <p className="footer-heading">{footer.connectLabel}</p>
             <ul>
               <li>
-                <a href={`mailto:${site.email}`}>
+                <a className="footer-mail" href={`mailto:${site.email}`}>
                   <Mail aria-hidden="true" />
-                  {site.email}
+                  <span>{site.email}</span>
                 </a>
               </li>
               <li>

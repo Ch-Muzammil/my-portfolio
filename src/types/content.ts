@@ -258,7 +258,7 @@ export interface AboutContent {
     eyebrow: string;
     title: string;
     accent: string;
-    description: string;
+    description: readonly string[];
   };
 }
 
@@ -327,9 +327,18 @@ export interface ContactContent {
   submitLabel: string;
   sendingLabel: string;
   idleNote: string;
+  sentTitle: string;
   sentNote: string;
+  errorTitle: string;
   errorNote: string;
+  limitTitle: string;
   rateLimitNote: string;
+  promptEyebrow: string;
+  promptTitle: string;
+  promptBody: string;
+  promptAction: string;
+  promptDismiss: string;
+  promptClose: string;
   subjectPrefix: string;
   bodyFrom: string;
   bodyEmail: string;

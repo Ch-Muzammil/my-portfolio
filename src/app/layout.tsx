@@ -5,6 +5,9 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Spotlight } from "@/components/ui/Spotlight";
+import { Toaster } from "@/components/ui/Toaster";
+import { VisitPrompt } from "@/features/contact/components/VisitPrompt";
+import { contact } from "@/content/contact";
 import { footer } from "@/content/footer";
 import { nav } from "@/content/nav";
 import { site } from "@/content/site";
@@ -57,6 +60,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header site={site} nav={nav} />
         <main id="main-content">{children}</main>
         <Footer footer={footer} site={site} nav={nav} />
+        <Toaster />
+        <VisitPrompt content={contact} />
         <SpeedInsights />
       </body>
     </html>

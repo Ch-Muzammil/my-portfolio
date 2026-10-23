@@ -3551,6 +3551,20 @@
   text-transform: uppercase;
 }
 
+.footer-column {
+  min-width: 0;
+}
+
+.footer-mail {
+  align-items: flex-start;
+}
+
+.footer-mail span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
 .footer-column ul {
   display: grid;
   gap: 0.2rem;
@@ -3910,6 +3924,208 @@
 }
 
 /* ------------------------------------------------------------------ */
+/* Toasts                                                              */
+/* ------------------------------------------------------------------ */
+
+[data-sonner-toaster] {
+  --width: min(23rem, calc(100vw - 1.5rem));
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+
+[data-sonner-toast] {
+  width: var(--width);
+}
+
+.app-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 0.75rem 0.85rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 1.15rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-lift);
+}
+
+.app-toast-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+}
+
+.app-toast-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.app-toast-success .app-toast-icon {
+  color: var(--cobalt-deep);
+  background: var(--cobalt-tint);
+}
+
+.app-toast-error .app-toast-icon {
+  color: var(--destructive);
+  background: oklch(0.6 0.2 25 / 0.12);
+}
+
+.app-toast-notice .app-toast-icon {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+
+.app-toast-copy {
+  min-width: 0;
+  flex: 1;
+  padding-top: 0.15rem;
+}
+
+.app-toast-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.app-toast-body {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.app-toast-close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--subtle);
+  cursor: pointer;
+}
+
+.app-toast-close svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.app-toast-close:hover {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-sonner-toast] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Visit prompt                                                        */
+/* ------------------------------------------------------------------ */
+
+.visit-prompt {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgb(13 13 18 / 0.46);
+  backdrop-filter: blur(10px);
+  animation: prompt-fade 0.35s var(--ease-out);
+}
+
+.visit-prompt-card {
+  position: relative;
+  width: min(28rem, 100%);
+  padding: clamp(1.5rem, 3vw, 2.15rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-lift);
+  outline: none;
+  animation: prompt-rise 0.55s var(--ease-out);
+}
+
+.visit-prompt-card h2 {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 1.2rem + 1.4vw, 2.15rem);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.visit-prompt-card > p:not(.pill) {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.975rem;
+  line-height: 1.6;
+}
+
+.visit-prompt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.visit-prompt-actions > span {
+  display: contents;
+}
+
+.visit-prompt-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--subtle);
+  cursor: pointer;
+}
+
+.visit-prompt-close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.visit-prompt-close:hover {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+@keyframes prompt-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes prompt-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* Responsive                                                          */
 /* ------------------------------------------------------------------ */
 
@@ -4081,7 +4297,8 @@
   .about-bento,
   .experience-row,
   .feature-list,
-  .section-heading {
+  .section-heading,
+  .footer-top {
     grid-template-columns: minmax(0, 1fr);
   }
 

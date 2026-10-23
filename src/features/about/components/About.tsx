@@ -55,11 +55,13 @@ export function About({ content, variant = "compact" }: AboutProps) {
               <h2 id={headingId} className="section-title">
                 {content.title} <span className="text-primary">{content.accent}</span>
               </h2>
-              {content.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="body-copy">
-                  {paragraph}
-                </p>
-              ))}
+              {variant === "compact"
+                ? content.paragraphs.map((paragraph) => (
+                    <p key={paragraph} className="body-copy">
+                      {paragraph}
+                    </p>
+                  ))
+                : null}
               {variant === "compact" ? (
                 <Button href={content.moreHref} variant="quiet" className="about-more">
                   {content.moreLabel}

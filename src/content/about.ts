@@ -9,10 +9,10 @@ export const about: AboutContent = {
   number: "03",
   label: "The human behind the code",
   title: "Engineer by trade.",
-  accent: "Curious by nature.",
+  accent: "Product-minded by nature.",
   paragraphs: [
-    "I’m Muzammal, a software engineer based in Lahore. I enjoy connecting the dots between design and development, creating experiences that are as thoughtful under the hood as they are on the screen.",
-    "Away from the keyboard, I’m usually exploring a new idea, appreciating good design, or finding my next favorite cup of coffee.",
+    "I’m Muzammal, a software engineer based in Lahore, Pakistan. I build web applications that bring together thoughtful design, solid engineering, and real business needs. I enjoy turning complex requirements into intuitive experiences backed by reliable logic.",
+    "For me, good engineering goes beyond writing code. It means understanding the problem, thinking through edge cases, making deliberate trade-offs, and building products I can stand behind. Whether I’m developing a new feature or refining an existing workflow, I care about the details that make a product genuinely useful.",
   ],
   moreLabel: "A little more about me",
   moreHref: "/about",
@@ -32,12 +32,15 @@ export const about: AboutContent = {
     { value: "10", label: "Projects shipped" },
     { value: "98", label: "Lighthouse score" },
   ],
-  quote: "“The best interfaces don’t just look good. They make life a little easier.”",
+  quote: "“Great software doesn’t just solve problems. It makes the solution feel effortless.”",
   page: {
     eyebrow: "A little more about me",
-    title: "People first.",
-    accent: "Pixels second.",
-    description:
-      "I believe great software begins with empathy. Understanding the person on the other side of the screen is what makes the work meaningful.",
+    title: "Thoughtful engineering.",
+    accent: "Meaningful impact.",
+    description: [
+      "I believe great software starts with understanding people. The best solutions come from listening carefully, asking the right questions, and understanding the problem before jumping into code.",
+      "I enjoy exploring ideas, thinking through product flows, and finding the balance between a smooth user experience and reliable engineering. I pay attention to the details, consider edge cases, and care about building products that work as well in practice as they look on screen.",
+      "Outside of work, you’ll usually find me exploring new ideas, appreciating good design, or enjoying a cup of coffee.",
+    ],
   },
 };
