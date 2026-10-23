@@ -7,7 +7,7 @@ import type { ContactContent } from "@/types/content";
 import { Button } from "@/components/ui/Button";
 
 const STORAGE_KEY = "mh.visit-prompt";
-const DELAY_MS = 60_000;
+const DELAY_MS = 30_000;
 
 let remembered = false;
 
@@ -50,38 +50,12 @@ export function VisitPrompt({ content }: VisitPromptProps) {
   useEffect(() => {
     if (hasSeen()) return;
 
-    let remaining = DELAY_MS;
-    let startedAt = 0;
-    let timer = 0;
+    const timer = window.setTimeout(() => {
+      if (hasSeen() || window.location.pathname === "/contact") return;
+      setOpen(true);
+    }, DELAY_MS);
 
-    const clear = () => window.clearTimeout(timer);
-
-    const arm = () => {
-      clear();
-      if (document.visibilityState !== "visible" || remaining <= 0) return;
-      startedAt = performance.now();
-      timer = window.setTimeout(() => {
-        if (hasSeen() || window.location.pathname === "/contact") return;
-        setOpen(true);
-      }, remaining);
-    };
-
-    const onVisibility = () => {
-      if (document.visibilityState === "hidden") {
-        if (startedAt) remaining = Math.max(0, remaining - (performance.now() - startedAt));
-        startedAt = 0;
-        clear();
-        return;
-      }
-      arm();
-    };
-
-    arm();
-    document.addEventListener("visibilitychange", onVisibility);
-    return () => {
-      clear();
-      document.removeEventListener("visibilitychange", onVisibility);
-    };
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
