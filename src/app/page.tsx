@@ -16,9 +16,10 @@ import { techStrip } from "@/content/tech-strip";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: hero.meta.title,
+  title: site.title,
   description: hero.meta.description,
   path: "/",
+  nameFirst: true,
 });
 
 export default function HomePage() {

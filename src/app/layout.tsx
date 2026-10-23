@@ -11,6 +11,7 @@ import { contact } from "@/content/contact";
 import { footer } from "@/content/footer";
 import { nav } from "@/content/nav";
 import { site } from "@/content/site";
+import { siteStructuredData } from "@/lib/seo";
 import "./globals.css";
 
 const geist = Geist({
@@ -39,11 +40,18 @@ export const metadata: Metadata = {
   },
   description: site.description,
   authors: [{ name: site.name }],
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/icon.svg?v=2", type: "image/svg+xml" },
+      { url: "/icon-32.png?v=2", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png?v=2",
+  },
   openGraph: {
     title: site.title,
     description: site.description,
     type: "website",
+    siteName: site.name,
   },
   twitter: { card: "summary_large_image" },
 };
@@ -52,6 +60,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${bricolage.variable}`}>
       <body suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteStructuredData()) }}
+        />
         <a className="skip-link" href="#main-content">
           {site.skipToContent}
         </a>
