@@ -4087,6 +4087,25 @@
   display: contents;
 }
 
+.visit-prompt-mute {
+  display: block;
+  margin: 1rem 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--subtle);
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.visit-prompt-mute:hover {
+  color: var(--ink);
+}
+
 .visit-prompt-close {
   position: absolute;
   top: 0.85rem;

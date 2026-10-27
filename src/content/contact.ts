@@ -43,6 +43,7 @@ export const contact: ContactContent = {
     "A role, a project, or a question. It takes a minute to send, and I reply to the email you enter.",
   promptAction: "Let’s talk",
   promptDismiss: "Not now",
+  promptMute: "Don’t show this again",
   promptClose: "Close",
   subjectPrefix: "Portfolio inquiry from ",
   bodyFrom: "From: ",

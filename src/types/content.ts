@@ -338,6 +338,7 @@ export interface ContactContent {
   promptBody: string;
   promptAction: string;
   promptDismiss: string;
+  promptMute: string;
   promptClose: string;
   subjectPrefix: string;
   bodyFrom: string;

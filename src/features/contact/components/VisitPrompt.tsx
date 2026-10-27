@@ -8,24 +8,47 @@ import { Button } from "@/components/ui/Button";
 
 const STORAGE_KEY = "mh.visit-prompt";
 const DELAY_MS = 30_000;
+const DISMISSED = "dismissed";
+const SESSION_SNOOZE = "1";
 
-let remembered = false;
+/** Covers this tab when storage is blocked (private mode). */
+let suppressed = false;
 
-function hasSeen() {
-  if (remembered) return true;
+function isSuppressed() {
+  if (suppressed) return true;
   try {
-    return window.localStorage.getItem(STORAGE_KEY) === "1";
+    if (window.sessionStorage.getItem(STORAGE_KEY) === SESSION_SNOOZE) return true;
+  } catch {
+    // Fall through to permanent storage.
+  }
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return false;
+    // Permanent mute: current value, or the previous always-on flag.
+    if (raw === DISMISSED || raw === "1") return true;
+    // Drop the old 7-day snooze timestamps so soft dismiss is session-only again.
+    if (Number.isFinite(Number(raw))) window.localStorage.removeItem(STORAGE_KEY);
+    return false;
   } catch {
     return false;
   }
 }
 
-function remember() {
-  remembered = true;
+function dismissHard() {
+  suppressed = true;
   try {
-    window.localStorage.setItem(STORAGE_KEY, "1");
+    window.localStorage.setItem(STORAGE_KEY, DISMISSED);
   } catch {
-    // Private browsing can block storage. The in-memory flag still covers this visit.
+    // In-memory flag still covers this visit.
+  }
+}
+
+function dismissSoft() {
+  suppressed = true;
+  try {
+    window.sessionStorage.setItem(STORAGE_KEY, SESSION_SNOOZE);
+  } catch {
+    // In-memory flag still covers this visit.
   }
 }
 
@@ -33,7 +56,7 @@ interface VisitPromptProps {
   content: ContactContent;
 }
 
-// Client leaf: one delayed invite for a first visit, then it stays dismissed.
+// Soft close is session-only. Hard close (CTA, /contact, mute) is permanent.
 export function VisitPrompt({ content }: VisitPromptProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -43,15 +66,15 @@ export function VisitPrompt({ content }: VisitPromptProps) {
 
   useEffect(() => {
     if (pathname !== "/contact") return;
-    remember();
+    dismissHard();
     setOpen(false);
   }, [pathname]);
 
   useEffect(() => {
-    if (hasSeen()) return;
+    if (isSuppressed()) return;
 
     const timer = window.setTimeout(() => {
-      if (hasSeen() || window.location.pathname === "/contact") return;
+      if (isSuppressed() || window.location.pathname === "/contact") return;
       setOpen(true);
     }, DELAY_MS);
 
@@ -72,7 +95,7 @@ export function VisitPrompt({ content }: VisitPromptProps) {
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        remember();
+        dismissSoft();
         setOpen(false);
         return;
       }
@@ -98,8 +121,13 @@ export function VisitPrompt({ content }: VisitPromptProps) {
     };
   }, [open]);
 
-  function dismiss() {
-    remember();
+  function softClose() {
+    dismissSoft();
+    setOpen(false);
+  }
+
+  function hardClose() {
+    dismissHard();
     setOpen(false);
   }
 
@@ -109,7 +137,7 @@ export function VisitPrompt({ content }: VisitPromptProps) {
     <div
       className="visit-prompt"
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) dismiss();
+        if (event.target === event.currentTarget) softClose();
       }}
     >
       <div
@@ -121,23 +149,26 @@ export function VisitPrompt({ content }: VisitPromptProps) {
         aria-describedby={bodyId}
         tabIndex={-1}
       >
-        <button type="button" className="visit-prompt-close" aria-label={content.promptClose} onClick={dismiss}>
+        <button type="button" className="visit-prompt-close" aria-label={content.promptClose} onClick={softClose}>
           <X aria-hidden="true" />
         </button>
         <p className="pill">{content.promptEyebrow}</p>
         <h2 id={titleId}>{content.promptTitle}</h2>
         <p id={bodyId}>{content.promptBody}</p>
         <div className="visit-prompt-actions">
-          <span onClick={remember}>
+          <span onClick={dismissHard}>
             <Button href={content.primaryHref}>
               {content.promptAction}
               <ArrowUpRight aria-hidden="true" />
             </Button>
           </span>
-          <Button type="button" variant="quiet" onClick={dismiss}>
+          <Button type="button" variant="quiet" onClick={softClose}>
             {content.promptDismiss}
           </Button>
         </div>
+        <button type="button" className="visit-prompt-mute" onClick={hardClose}>
+          {content.promptMute}
+        </button>
       </div>
     </div>
   );
