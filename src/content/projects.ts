@@ -56,6 +56,7 @@ export const projectsContent: ProjectsContent = {
 };
 
 export const projects: readonly Project[] = [
+  /*
   {
     slug: "sbre-connect",
     title: "SBRE Connect",
@@ -842,6 +843,140 @@ export const projects: readonly Project[] = [
       ],
       lesson:
         "An exchange stays credible when the calendar, the points balance, and the verification state agree before a stay is confirmed. KeyChainN puts those rules in the booking flow, and keeps payment, disputes, and chat attached to the same reservation.",
+    },
+  },
+  */
+  {
+    slug: "meridian-dispatch",
+    title: "Meridian Dispatch Group",
+    subtitle: "The freight office, on the web.",
+    kind: "Web",
+    category: "Web applications",
+    year: "2026",
+    liveUrl: "https://meridian-dispatch-puce.vercel.app/",
+    image: {
+      src: "/images/projects/meridian-dispatch/card.jpg",
+      width: 1600,
+      height: 1000,
+      alt: "Meridian Dispatch Group public website — truck dispatching for US carriers",
+    },
+    cover: {
+      src: "/images/projects/meridian-dispatch/cover.jpg",
+      width: 2000,
+      height: 1250,
+      alt: "Meridian Dispatch Group landing page hero",
+    },
+    gallery: [
+      {
+        src: "/images/projects/meridian-dispatch/services.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "Meridian Dispatch services index with dry van, reefer, flatbed, and power-only desks",
+        title: "Dispatch desks",
+        caption: "Public services index — six desks carriers can browse before requesting a quote.",
+      },
+      {
+        src: "/images/projects/meridian-dispatch/dashboard.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "Meridian admin dashboard with quote, follow-up, hiring, and content metrics",
+        title: "Ops dashboard",
+        caption: "Staff overview — new quotes, follow-ups due, open roles, and published content counts.",
+      },
+      {
+        src: "/images/projects/meridian-dispatch/quotes.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "Meridian quote requests inbox with status filters and lead rows",
+        title: "Quote inbox",
+        caption: "Lead pipeline from the public contact form — filter by status and equipment, open any row to work it.",
+      },
+    ],
+    caseImageAlt: "Meridian Dispatch Group website and admin portal",
+    metric: "Public site + internal portal",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Zod"],
+    role: "Full-stack engineering",
+    type: "Website & operations portal",
+    focus: "Public marketing site, leads, hiring & CMS",
+    description:
+      "A complete website and internal portal for a US truck-dispatch company. Carriers request coverage, candidates apply for desk roles, and staff run leads, hiring, and all public content from one authenticated admin — stored and served live through Supabase.",
+    challenge:
+      "A dispatch company lives on outbound trust and inbound operations. Carriers need desks, onboarding, and a quote path without calling first. The office needs owners on leads, a hiring funnel, and a way to keep services, jobs, blog, FAQs, and legal accurate without a developer. Split across a brochure site, a shared inbox, and spreadsheets, that work never stays in sync.",
+    solution:
+      "I built one system with two surfaces. The public site is the front door — home, about, six service desks, careers with apply, blog, FAQs, contact, and legal. The admin portal is the desk — dashboard, quote-request and job-application pipelines, and a CMS for services, careers, blog, FAQs, pages, and website settings. Staff sign in with email and password; there is no public self-signup. Supabase holds Auth, Postgres, Storage for resumes and media, and the rules that keep published content public while pipeline and settings stay staff-only.",
+    features: [
+      "Public marketing site with live CMS-driven services, careers, blog, FAQs, and pages",
+      "Contact form that creates quote-request leads with equipment, fleet size, and status pipeline",
+      "Careers funnel with open roles, applications, resume upload to Storage, and hiring statuses",
+      "Admin dashboard with real aggregates for leads, follow-ups, applicants, and published content",
+      "Content CMS for services, jobs, articles, FAQ groups, marketing pages, and website settings",
+      "Staff account surface for profile, password, optional 2FA, and session management",
+    ],
+    highlights: [
+      {
+        title: "One product, two surfaces",
+        body: "The public site and admin portal share the same brand and the same data. Carriers never see Supabase; staff see live numbers and forms that write to the same tables the marketing pages read.",
+      },
+      {
+        title: "Leads and hiring as first-class inboxes",
+        body: "Quote requests and job applications are not mailto links. Each submission becomes a row with status, owner, notes, and follow-up — so the desk can move New → Contacted → Qualified → Won/Lost without leaving the portal.",
+      },
+      {
+        title: "CMS instead of deploys for copy",
+        body: "Services, jobs, articles, FAQs, pages, phones, hours, and SEO live in tables. Publishing or archiving updates the live site without shipping code.",
+      },
+      {
+        title: "Honest product boundary",
+        body: "This is the company website plus the office that runs the website, leads, and hiring. It is not a TMS — no load boards, GPS, invoicing, or carrier logins.",
+      },
+    ],
+    architecture: {
+      stack: [
+        {
+          label: "Application",
+          items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "React Hook Form", "Zod"],
+        },
+        {
+          label: "Supabase",
+          items: ["Auth", "Postgres", "Storage", "RLS policies"],
+        },
+        {
+          label: "Surfaces",
+          items: ["Public marketing site", "Staff admin portal"],
+        },
+        {
+          label: "Inbound",
+          items: ["Quote requests", "Job applications", "Resume uploads"],
+        },
+      ],
+      decisions: [
+        {
+          title: "Published vs staff-only",
+          body: "Public routes read published content and can insert quotes and applications. Only authenticated staff update pipelines, jobs, pages, and settings.",
+        },
+        {
+          title: "Storage for files people open",
+          body: "Resumes and service or article media live in Storage so hiring can download packets and the CMS can reuse images across desks and posts.",
+        },
+        {
+          title: "Dashboard from the same tables",
+          body: "Overview metrics are aggregates over quote requests, applications, and content — not sample cards — so a status change on a lead moves the numbers staff see at shift start.",
+        },
+        {
+          title: "Settings drive chrome",
+          body: "Company name, dispatch line, hours, nav visibility, SEO, and maintenance mode come from website settings, so header and footer update without a deploy.",
+        },
+      ],
+    },
+    outcomes: {
+      delivered: [
+        "Public site covering home, about, services, careers, blog, FAQs, contact, and legal",
+        "Authenticated admin for dashboard, quote and hiring pipelines, and full CMS",
+        "Supabase-backed content, leads, applications, media, and staff auth",
+        "Clear scope: company website and office portal — not a TMS",
+      ],
+      lesson:
+        "A dispatch company stays coherent when the public front door and the internal desk share one system of record. Meridian works because quote requests, applications, and published content all land in the same place staff already use to run the day.",
     },
   },
   {
