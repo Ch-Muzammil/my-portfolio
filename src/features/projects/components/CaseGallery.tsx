@@ -54,6 +54,7 @@ export function CaseGallery({ shots, viewLabel }: CaseGalleryProps) {
                     : "(max-width: 40rem) 88vw, (max-width: 80rem) 33vw, 25rem"
                 }
                 className="case-shot-image"
+                style={{ objectFit: "contain", objectPosition: "center" }}
               />
               <span className="case-shot-label">
                 <span className="case-shot-index">{String(i + 1).padStart(2, "0")}</span>

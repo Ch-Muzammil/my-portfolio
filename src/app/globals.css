@@ -3053,11 +3053,6 @@
 .case-shot-image {
   object-fit: contain;
   object-position: center;
-  transition: transform 1.2s var(--ease-out);
-}
-
-.case-shot:hover .case-shot-image {
-  transform: scale(1.035);
 }
 
 .case-shot-expand,
@@ -3154,6 +3149,12 @@
 
 .yarl__slide_image {
   border-radius: 1rem;
+  object-fit: contain !important;
+}
+
+.yarl__thumbnails_thumbnail img,
+.yarl__thumbnails_thumbnail_image {
+  object-fit: contain !important;
 }
 
 .yarl__slide_title {
