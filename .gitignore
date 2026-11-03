@@ -5,7 +5,7 @@ out
 dist
 .vercel
 *.log
-.env
 .env*.local
 next-env.d.ts
 .DS_Store
+config.bat
