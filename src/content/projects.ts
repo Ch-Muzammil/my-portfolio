@@ -56,7 +56,6 @@ export const projectsContent: ProjectsContent = {
 };
 
 export const projects: readonly Project[] = [
-  /*
   {
     slug: "sbre-connect",
     title: "SBRE Connect",
@@ -845,7 +844,6 @@ export const projects: readonly Project[] = [
         "An exchange stays credible when the calendar, the points balance, and the verification state agree before a stay is confirmed. KeyChainN puts those rules in the booking flow, and keeps payment, disputes, and chat attached to the same reservation.",
     },
   },
-  */
   {
     slug: "meridian-dispatch",
     title: "Meridian Dispatch Group",
